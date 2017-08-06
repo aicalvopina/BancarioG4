@@ -60,7 +60,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtSaldoInicial = new javax.swing.JTextField();
-        cmbTipo = new javax.swing.JComboBox<>();
+        cmbTipo = new javax.swing.JComboBox<String>();
         btnGuardar = new javax.swing.JButton();
         btnLimpiarCuenta = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -69,7 +69,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtCedMov = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        cmbCuentas = new javax.swing.JComboBox<>();
+        cmbCuentas = new javax.swing.JComboBox<String>();
         rbtDebito = new javax.swing.JRadioButton();
         rbtCredito = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
@@ -86,11 +86,11 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tabCuenta1 = new javax.swing.JTable();
         btnDesCu = new javax.swing.JButton();
-        cmbDesCu = new javax.swing.JComboBox<>();
+        cmbDesCu = new javax.swing.JComboBox<String>();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cmbCuentasCon = new javax.swing.JComboBox<>();
+        cmbCuentasCon = new javax.swing.JComboBox<String>();
         txtCedMovCon = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -103,9 +103,15 @@ public class Principal extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         txtCedula1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        txtiinteres = new javax.swing.JTextField();
+        txtperiodo = new javax.swing.JTextField();
+        txtmonto = new javax.swing.JTextField();
+        btncalcular = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -263,7 +269,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ahorros", "Corriente" }));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ahorros", "Corriente" }));
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -704,8 +710,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Simular");
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -719,6 +723,38 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(jTable1);
 
+        jLabel16.setText("Monto de Prestamo:");
+
+        jLabel17.setText("Periodo (meses):");
+
+        jLabel18.setText("Taza de interes:");
+
+        txtiinteres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtiinteresKeyTyped(evt);
+            }
+        });
+
+        txtperiodo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtperiodoKeyTyped(evt);
+            }
+        });
+
+        txtmonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmontoActionPerformed(evt);
+            }
+        });
+        txtmonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtmontoKeyTyped(evt);
+            }
+        });
+
+        btncalcular.setText("Calcular");
+        btncalcular.setActionCommand("");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -727,13 +763,26 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(39, 39, 39)
-                        .addComponent(txtCedula1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                        .addGap(74, 74, 74)
+                        .addComponent(btncalcular)
+                        .addGap(98, 98, 98))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCedula1))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtperiodo)
+                                    .addComponent(txtmonto)
+                                    .addComponent(txtiinteres))))
+                        .addGap(18, 18, 18)))
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91))
         );
@@ -747,8 +796,20 @@ public class Principal extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(txtCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(txtmonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(txtperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(txtiinteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btncalcular)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1214,8 +1275,34 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDesCuActionPerformed
 
     private void txtCedula1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedula1KeyTyped
-        // TODO add your handling code here:
+        final char caracter = evt.getKeyChar();
+        String ced = txtCedula.getText();
+        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtCedula1KeyTyped
+
+    private void txtiinteresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtiinteresKeyTyped
+        if (evt.getKeyChar() < (char) 48 || evt.getKeyChar() > (char) 57) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtiinteresKeyTyped
+
+    private void txtperiodoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtperiodoKeyTyped
+        if (evt.getKeyChar() < (char) 48 || evt.getKeyChar() > (char) 57) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtperiodoKeyTyped
+
+    private void txtmontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmontoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmontoActionPerformed
+
+    private void txtmontoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmontoKeyTyped
+        if (evt.getKeyChar() < (char) 48 || evt.getKeyChar() > (char) 57) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtmontoKeyTyped
 
     public static boolean validarRuc(final String ced) {
         boolean isValid = false;
@@ -1349,11 +1436,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpiarCuenta;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevoMov;
+    private javax.swing.JButton btncalcular;
     private javax.swing.JComboBox<String> cmbCuentas;
     private javax.swing.JComboBox<String> cmbCuentasCon;
     private javax.swing.JComboBox<String> cmbDesCu;
     private javax.swing.JComboBox<String> cmbTipo;
-    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -1363,6 +1450,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1404,5 +1494,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumCuenta;
     private javax.swing.JTextField txtSaldoInicial;
+    private javax.swing.JTextField txtiinteres;
+    private javax.swing.JTextField txtmonto;
+    private javax.swing.JTextField txtperiodo;
     // End of variables declaration//GEN-END:variables
 }

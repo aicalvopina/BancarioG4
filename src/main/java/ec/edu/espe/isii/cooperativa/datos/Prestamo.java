@@ -23,10 +23,64 @@
  */
 package ec.edu.espe.isii.cooperativa.datos;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
- * @author Adrián
+ * @author Jonathan
  */
 public class Prestamo {
+    private String cedula, saldo;
+    final private Conexion cnx = new Conexion();
+
+    public Prestamo() {
+    }
+
+    public Prestamo(String cedula, String saldo) {
+        this.cedula = cedula;
+        this.saldo = saldo;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public String getSaldo() {
+        return saldo;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public void setSaldo(String saldo) {
+        this.saldo = saldo;
+    }
     
+        final public ArrayList<Prestamo> buscarCliente(final String client) {
+        final Prestamo prestamoVal = new Prestamo();
+        final ArrayList<Prestamo> prestamoArray = new ArrayList<>();
+        try {
+            final Connection con  = cnx.getConexion();
+            final Statement statement = con.createStatement();
+            final ResultSet result = statement.executeQuery("SELECT cedula,saldo FROM cuenta WHERE cedula='"+client+"';");
+            while (result.next()){
+                prestamoVal.setCedula(result.getString("cedula"));
+                prestamoVal.setSaldo(result.getString("saldo"));
+                prestamoArray.add(prestamoVal);
+            }
+            try { con.close(); }
+            catch (SQLException ex) {
+                Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex); }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex); }
+        return prestamoArray;
+    }
 }
