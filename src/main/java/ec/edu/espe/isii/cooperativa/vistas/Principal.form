@@ -124,7 +124,7 @@
                           <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="113" max="32767" attributes="0"/>
+                      <EmptySpace pref="122" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="197" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
@@ -298,7 +298,7 @@
                           <Component id="txtSaldoInicial" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="146" max="32767" attributes="0"/>
+                      <EmptySpace pref="155" max="32767" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="140" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
@@ -483,7 +483,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="130" max="-2" attributes="0"/>
-                      <EmptySpace pref="123" max="32767" attributes="0"/>
+                      <EmptySpace pref="132" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -669,7 +669,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       <Component id="jScrollPane5" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace pref="150" max="32767" attributes="0"/>
+                      <EmptySpace pref="159" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -833,7 +833,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="jScrollPane4" min="-2" pref="186" max="-2" attributes="0"/>
-                      <EmptySpace pref="99" max="32767" attributes="0"/>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -917,6 +917,135 @@
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
             </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel6">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Simulador Prestamos">
+                <Property name="tabTitle" type="java.lang.String" value="Simulador Prestamos"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="txtCedula1" pref="124" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jScrollPane6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane6" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCedula1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel15">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cedula/RUC:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCedula1">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCedula1KeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Simular"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTable1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="6" rowCount="4">
+                        <Column editable="true" title="Mes" type="java.lang.Object"/>
+                        <Column editable="true" title="Saldo Inicial" type="java.lang.Object"/>
+                        <Column editable="true" title="Interes" type="java.lang.Object"/>
+                        <Column editable="true" title="Amortizacion" type="java.lang.Object"/>
+                        <Column editable="true" title="Pago" type="java.lang.Object"/>
+                        <Column editable="true" title="Saldo Final" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>

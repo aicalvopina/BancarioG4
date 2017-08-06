@@ -100,6 +100,12 @@ public class Principal extends javax.swing.JFrame {
         btnNuevo = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        txtCedula1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -224,7 +230,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(btnCrear)
                     .addComponent(btnBuscar)
                     .addComponent(btnLimpar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -340,7 +346,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSaldoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -474,7 +480,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         tabbed.addTab("Movimientos", jPanel3);
@@ -567,7 +573,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(btnDesCu))
                 .addGap(96, 96, 96)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         tabbed.addTab("Consultar Cuentas", jPanel4);
@@ -685,10 +691,68 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         tabbed.addTab("Consultar Movimientos", jPanel5);
+
+        jLabel15.setText("Cedula/RUC:");
+
+        txtCedula1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedula1KeyTyped(evt);
+            }
+        });
+
+        jButton1.setText("Simular");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Mes", "Saldo Inicial", "Interes", "Amortizacion", "Pago", "Saldo Final"
+            }
+        ));
+        jScrollPane6.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(39, 39, 39)
+                        .addComponent(txtCedula1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(txtCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tabbed.addTab("Simulador Prestamos", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1149,6 +1213,10 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDesCuActionPerformed
 
+    private void txtCedula1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedula1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedula1KeyTyped
+
     public static boolean validarRuc(final String ced) {
         boolean isValid = false;
         String cedula = "0000000000000";
@@ -1285,6 +1353,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbCuentasCon;
     private javax.swing.JComboBox<String> cmbDesCu;
     private javax.swing.JComboBox<String> cmbTipo;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -1293,6 +1362,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1306,11 +1376,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTable jTable1;
     private javax.swing.JRadioButton rbtBuscar;
     private javax.swing.JRadioButton rbtCrear;
     private javax.swing.JRadioButton rbtCredito;
@@ -1326,6 +1399,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txtCedMov;
     private javax.swing.JTextField txtCedMovCon;
     private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCedula1;
     private javax.swing.JTextField txtMonto;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumCuenta;
