@@ -956,7 +956,7 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtperiodo" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtmonto" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtiinteres" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtinteres" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -992,7 +992,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtiinteres" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtinteres" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btncalcular" min="-2" max="-2" attributes="0"/>
@@ -1089,9 +1089,12 @@
                 <Property name="text" type="java.lang.String" value="Taza de interes:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtiinteres">
+            <Component class="javax.swing.JTextField" name="txtinteres">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtiinteresKeyTyped"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtinteresKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtperiodo">
@@ -1110,6 +1113,9 @@
                 <Property name="text" type="java.lang.String" value="Calcular"/>
                 <Property name="actionCommand" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncalcularActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
