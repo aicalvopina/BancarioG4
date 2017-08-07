@@ -8,7 +8,7 @@
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * furnished to do so, subject to t he following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
@@ -36,147 +36,84 @@ import java.util.logging.Logger;
  * @author Jonathan
  */
 public class Prestamo {
-    private String cedula, saldo;
+
+    private String codigoCuenta;
+    private double saldo;
+    private double saldoMaximo;
+    private int plaso;
     final private Conexion cnx = new Conexion();
 
     public Prestamo() {
     }
 
-    public Prestamo(String cedula, String saldo) {
-        this.cedula = cedula;
-        this.saldo = saldo;
+    public Prestamo(String codigoCuenta) {
+        this.codigoCuenta = codigoCuenta;
     }
 
-    public String getCedula() {
-        return cedula;
+    public String getCodigoCuenta() {
+        return codigoCuenta;
     }
 
-    public String getSaldo() {
+    public void setCodigoCuenta(String codigoCuenta) {
+        this.codigoCuenta = codigoCuenta;
+    }
+
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    public void setSaldo(String saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-    
-        final public ArrayList<Prestamo> buscarCliente(final String client) {
-        final Prestamo prestamoVal = new Prestamo();
-        final ArrayList<Prestamo> prestamoArray = new ArrayList<>();
+
+    public double getSaldoMaximo() {
+        return saldoMaximo;
+    }
+
+    public void setSaldoMaximo(double saldoMaximo) {
+        this.saldoMaximo = saldoMaximo;
+    }
+
+    public int getPlaso() {
+        return plaso;
+    }
+
+    public void setPlaso(int plaso) {
+        this.plaso = plaso;
+    }
+
+    /*
+    *Metodo  para iniciar los saldos basico y maximo que se pueden prestar.
+    *@param codigoCuenta codigo de la cuenta ligada al prestamo.
+     */
+    final public Prestamo inicialisarSaldos(final String codigoCuenta) {
+        Prestamo prestamo = new Prestamo(codigoCuenta);
         try {
-            final Connection con  = cnx.getConexion();
+            final Connection con = cnx.getConexion();
             final Statement statement = con.createStatement();
-            final ResultSet result = statement.executeQuery("SELECT cedula,saldo FROM cuenta WHERE cedula='"+client+"';");
-            while (result.next()){
-                prestamoVal.setCedula(result.getString("cedula"));
-                prestamoVal.setSaldo(result.getString("saldo"));
-                prestamoArray.add(prestamoVal);
+            final ResultSet result = statement.executeQuery("SELECT (avg(saldo)*3) as saldoMaximo FROM movimiento WHERE COD_CUENTA like '" + codigoCuenta + "' and to_days(fecha) between (to_days(now()) - 90) and to_days(now()) ;");
+            while (result.next()) {
+                prestamo.setSaldoMaximo(result.getDouble(1));
             }
-            try { con.close(); }
-            catch (SQLException ex) {
-                Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex); }
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch (SQLException ex) {
-            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex); }
-        return prestamoArray;
-    }
-        
-    /**
-     * Metodos para la parte de la tabla de amortizacion
-     */
-     public static void printAmortizationSchedule(double principal, double annualInterestRate,
-                                                 int numYears) {
-        double interestPaid, principalPaid, newBalance;
-        double monthlyInterestRate, monthlyPayment;
-        int month;
-        int numMonths = numYears * 12;
-
-        // Output monthly payment and total payment
-        monthlyInterestRate = annualInterestRate / 12;
-        monthlyPayment      = monthlyPayment(principal, monthlyInterestRate, numYears);
-        System.out.format("Monthly Payment: %8.2f%n", monthlyPayment);
-        System.out.format("Total Payment:   %8.2f%n", monthlyPayment * numYears * 12);
-
-        // Print the table header
-        printTableHeader();
-
-        for (month = 1; month <= numMonths; month++) {
-            // Compute amount paid and new balance for each payment period
-            interestPaid  = principal      * (monthlyInterestRate / 100);
-            principalPaid = monthlyPayment - interestPaid;
-            newBalance    = principal      - principalPaid;
-
-            // Output the data item
-            printScheduleItem(month, interestPaid, principalPaid, newBalance);
-
-            // Update the balance
-            principal = newBalance;
-        }
+        return prestamo;
     }
 
     /**
-     * @param loanAmount
-     * @param monthlyInterestRate in percent
-     * @param numberOfYears
-     * @return the amount of the monthly payment of the loan
+     * @param montoPrestamo Saldo del prestamo
+     * @param interesMensual interes de cada mes
+     * @param numeroMeses numero de cuotas
+     * @return devuelve el pago de cada mes
      */
-    static double monthlyPayment(double loanAmount, double monthlyInterestRate, int numberOfYears) {
-        monthlyInterestRate /= 100;  // e.g. 5% => 0.05
-        return loanAmount * monthlyInterestRate /
-                ( 1 - 1 / Math.pow(1 + monthlyInterestRate, numberOfYears * 12) );
+    public double PagoMensual(double montoPrestamo, double interesMensual, int numeroMeses) {
+        return montoPrestamo * interesMensual
+                / (1 - 1 / Math.pow(1 + interesMensual, numeroMeses));
     }
-
-    /**
-     * Prints a table data of the amortization schedule as a table row.
-     */
-    private static void printScheduleItem(int month, double interestPaid,
-                                          double principalPaid, double newBalance) {
-        System.out.format("%8d%10.2f%10.2f%12.2f\n",
-            month, interestPaid, principalPaid, newBalance);
-    }
-
-    /**
-     * Prints the table header for the amortization schedule.
-     */
-    private static void printTableHeader() {
-        System.out.println("\nAmortization schedule");
-        for(int i = 0; i < 40; i++) {  // Draw a line
-            System.out.print("-");
-        }
-        System.out.format("\n%8s%10s%10s%12s\n",
-            "Payment#", "Interest", "Principal", "Balance");
-        System.out.format("%8s%10s%10s%12s\n\n",
-            "", "paid", "paid", "");
-    }
-    /**
-     * Parte de la impresion de la tabla de pretsamos via consola
-     */
-    /**
-     * public class Prueba {
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        // Prompt the user for loan amount, number of years and annual interest rate
-
-        System.out.print("Loan Amount: ");
-        double loanAmount = sc.nextDouble();
-
-        System.out.print("Number of Years: ");
-        int numYears = sc.nextInt();
-
-        System.out.print("Annual Interest Rate (in %): ");
-        double annualInterestRate = sc.nextDouble();
-
-        System.out.println();  // Insert a new line
-
-        // Print the amortization schedule
-
-        printAmortizationSchedule(loanAmount, annualInterestRate, numYears);
-    }
-     */
 }

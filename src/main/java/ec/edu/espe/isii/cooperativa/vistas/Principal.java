@@ -64,7 +64,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtSaldoInicial = new javax.swing.JTextField();
-        cmbTipo = new javax.swing.JComboBox<String>();
+        cmbTipo = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
         btnLimpiarCuenta = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -73,7 +73,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtCedMov = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        cmbCuentas = new javax.swing.JComboBox<String>();
+        cmbCuentas = new javax.swing.JComboBox<>();
         rbtDebito = new javax.swing.JRadioButton();
         rbtCredito = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
@@ -90,11 +90,11 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tabCuenta1 = new javax.swing.JTable();
         btnDesCu = new javax.swing.JButton();
-        cmbDesCu = new javax.swing.JComboBox<String>();
+        cmbDesCu = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cmbCuentasCon = new javax.swing.JComboBox<String>();
+        cmbCuentasCon = new javax.swing.JComboBox<>();
         txtCedMovCon = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -106,9 +106,9 @@ public class Principal extends javax.swing.JFrame {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        txtCedula1 = new javax.swing.JTextField();
+        txtCuentaPrestamo = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabPrestamo = new javax.swing.JTable();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -273,7 +273,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ahorros", "Corriente" }));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ahorros", "Corriente" }));
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -592,6 +592,8 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel11.setText("Cuenta");
 
+        cmbCuentasCon.setName(""); // NOI18N
+
         txtCedMovCon.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCedMovConKeyTyped(evt);
@@ -706,15 +708,15 @@ public class Principal extends javax.swing.JFrame {
 
         tabbed.addTab("Consultar Movimientos", jPanel5);
 
-        jLabel15.setText("Cedula/RUC:");
+        jLabel15.setText("Numero de cuenta:");
 
-        txtCedula1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCuentaPrestamo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCedula1KeyTyped(evt);
+                txtCuentaPrestamoKeyTyped(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabPrestamo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -725,7 +727,7 @@ public class Principal extends javax.swing.JFrame {
                 "Mes", "Saldo Inicial", "Interes", "Amortizacion", "Pago", "Saldo Final"
             }
         ));
-        jScrollPane6.setViewportView(jTable1);
+        jScrollPane6.setViewportView(tabPrestamo);
 
         jLabel16.setText("Monto de Prestamo:");
 
@@ -775,13 +777,13 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(btncalcular)
-                        .addGap(98, 98, 98))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCedula1))
+                                .addComponent(txtCuentaPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -793,19 +795,18 @@ public class Principal extends javax.swing.JFrame {
                                     .addComponent(txtmonto)
                                     .addComponent(txtinteres))))
                         .addGap(18, 18, 18)))
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(txtCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCuentaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
@@ -819,7 +820,10 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel18)
                             .addComponent(txtinteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btncalcular)))
+                        .addComponent(btncalcular))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1260,13 +1264,13 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDesCuActionPerformed
 
-    private void txtCedula1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedula1KeyTyped
+    private void txtCuentaPrestamoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCuentaPrestamoKeyTyped
         final char caracter = evt.getKeyChar();
         String ced = txtCedula.getText();
         if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
             evt.consume();
         }
-    }//GEN-LAST:event_txtCedula1KeyTyped
+    }//GEN-LAST:event_txtCuentaPrestamoKeyTyped
 
     private void txtinteresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtinteresKeyTyped
         if (evt.getKeyChar() < (char) 48 || evt.getKeyChar() > (char) 57) {
@@ -1291,31 +1295,55 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtmontoKeyTyped
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
-        if (validarRuc(txtCedula.getText()) == false && validacionRUC(txtCedula.getText()) == false) {
+        if (false) {
             JOptionPane.showMessageDialog(rootPane, "Ingrese la cedula o RUC correctos");
         } else {
             prestamo = new Prestamo();
-            final ArrayList<Prestamo> prestamoArray = prestamo.buscarCliente(txtCedula1.getText());
-            for (int i = 0; i < prestamoArray.size(); i++) {
-                Object[] fila = new Object[2];
-                final Prestamo prestamo = prestamoArray.get(i);
-                fila[0] = prestamo.getCedula();
-                fila[1] = prestamo.getSaldo();
-                int sal = (Integer)fila[1] * 3;
-                double interes=0;
-                if (Integer.parseInt(txtmonto.getText()) <= sal) {
-                    if(Integer.parseInt(txtperiodo.getText())>2 && Integer.parseInt(txtperiodo.getText())<37){
-                        if(Integer.parseInt(txtperiodo.getText())<12){
-                            txtinteres.setText("10%");
-                            interes = 0.1;
-                        }else{
-                           txtinteres.setText("16%"); 
-                           interes = 0.16;
-                        }
+            prestamo = prestamo.inicialisarSaldos(txtCuentaPrestamo.getText());
+            int cuotas = Integer.parseInt(txtperiodo.getText());
+            prestamo.setPlaso(cuotas);
+            prestamo.setSaldo(Double.parseDouble(txtmonto.getText()));
+            DefaultTableModel modeloP = (DefaultTableModel) tabPrestamo.getModel();
+            modeloP.setRowCount(0);
+            double sal = prestamo.getSaldoMaximo();
+            double interes = 0;
+            if (prestamo.getSaldo() <= sal) {
+                if (cuotas > 2 && cuotas < 37) {
+                    if (cuotas < 12) {
+                        txtinteres.setText("10%");
+                        interes = 0.10;
+                    } else {
+                        txtinteres.setText("16%");
+                        interes = 0.16;
                     }
-                }else{
-                    JOptionPane.showMessageDialog(rootPane, "Prestamo no consedido: saldo insuficiente");
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "El numero de cuotas no debe ser menos a 3 ni mayor a 36");
                 }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Prestamo no consedido: saldo insuficiente puede pedir hasta" + prestamo.getSaldoMaximo());
+            }
+            double pagoMensual = prestamo.PagoMensual(prestamo.getSaldo(), interes / 12, cuotas);
+            for (int i = 0; i < cuotas; i++) {
+                double pagoInteres = prestamo.getSaldo() * (interes / 12);
+                double amortizado = pagoMensual - pagoInteres;
+                double deudaActual = prestamo.getSaldo() - pagoMensual;
+                Object[] fila = new Object[6];
+                fila[0] = i + 1;
+                fila[1] = String.format("$ %1$.2f",
+                        prestamo.getSaldo());
+                fila[2] = String.format("$ %1$.2f",
+                        pagoInteres);
+                fila[3] = String.format("$ %1$.2f",
+                        amortizado);
+                fila[4] = String.format("$ %1$.2f",
+                        pagoMensual);
+                if(deudaActual < 0){
+                    deudaActual = 0;
+                }
+                fila[5] = String.format("$ %1$.2f",
+                        deudaActual);
+                modeloP.addRow(fila);
+                prestamo.setSaldo(deudaActual);
             }
         }
     }//GEN-LAST:event_btncalcularActionPerformed
@@ -1486,7 +1514,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
     private javax.swing.JRadioButton rbtBuscar;
     private javax.swing.JRadioButton rbtCrear;
     private javax.swing.JRadioButton rbtCredito;
@@ -1496,13 +1523,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tabCuenta;
     private javax.swing.JTable tabCuenta1;
     private javax.swing.JTable tabMovimiento;
+    private javax.swing.JTable tabPrestamo;
     private javax.swing.JTabbedPane tabbed;
     private javax.swing.JTextField txtCed;
     private javax.swing.JTextField txtCedCu;
     private javax.swing.JTextField txtCedMov;
     private javax.swing.JTextField txtCedMovCon;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtCedula1;
+    private javax.swing.JTextField txtCuentaPrestamo;
     private javax.swing.JTextField txtMonto;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumCuenta;
