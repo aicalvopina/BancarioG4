@@ -27,7 +27,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -85,7 +84,7 @@ public class Prestamo {
     /*
     *Metodo  para iniciar los saldos basico y maximo que se pueden prestar.
     *@param codigoCuenta codigo de la cuenta ligada al prestamo.
-     */
+    */
     final public Prestamo inicialisarSaldos(final String codigoCuenta) {
         Prestamo prestamo = new Prestamo(codigoCuenta);
         try {
@@ -107,6 +106,7 @@ public class Prestamo {
     }
 
     /**
+     * Metodo para calcular el pago mensual.
      * @param montoPrestamo Saldo del prestamo
      * @param interesMensual interes de cada mes
      * @param numeroMeses numero de cuotas

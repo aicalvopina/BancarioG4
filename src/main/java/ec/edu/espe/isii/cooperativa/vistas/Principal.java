@@ -1295,8 +1295,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtmontoKeyTyped
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
-        if (false) {
-            JOptionPane.showMessageDialog(rootPane, "Ingrese la cedula o RUC correctos");
+        Cuenta cuenta = new Cuenta();
+        if (cuenta.buscarCuentaCodigo(txtCuentaPrestamo.getText())) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese un numero de cuenta correcto");
         } else {
             prestamo = new Prestamo();
             prestamo = prestamo.inicialisarSaldos(txtCuentaPrestamo.getText());
