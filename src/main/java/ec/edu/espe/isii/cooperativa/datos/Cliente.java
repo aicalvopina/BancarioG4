@@ -21,12 +21,14 @@ import java.util.logging.Logger;
  * @author Cristhian Arevalo
  */
 public class Cliente {
-    private String cedula, nombre;
+    private String cedula, nombre, genero, ingresoMensual;
     final private Conexion cnx = new Conexion();
 
-    public Cliente(String cedula, String nombre) {
+    public Cliente(String cedula, String nombre, String genero, String ingresoMensual) {
         this.cedula = cedula;
         this.nombre = nombre;
+        this.genero = genero;
+        this.ingresoMensual = ingresoMensual;       
     }
     public Cliente() {
 
@@ -48,14 +50,32 @@ public class Cliente {
         this.nombre = nombre;
     }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getIngresoMensual() {
+        return ingresoMensual;
+    }
+
+    public void setIngresoMensual(String ingresoMensual) {
+        this.ingresoMensual = ingresoMensual;
+    }
+
     final public int ingresarCliente(final Cliente clien) {
         int valor = 0;
         final Connection con = cnx.getConexion();
         try{
             CallableStatement sentencia;
-            sentencia = con.prepareCall("INSERT INTO `software`.`cliente` (`cedula`, `nombre`) VALUES (?,?);");
+            sentencia = con.prepareCall("INSERT INTO `software`.`cliente` (`cedula`, `nombre`, `genero`, `ingresoMensual`) VALUES (?,?,?,?);");
             sentencia.setString(1, clien.getCedula());
             sentencia.setString(2, clien.getNombre());
+            sentencia.setString(3, clien.getGenero());
+            sentencia.setString(4, clien.getIngresoMensual());
             valor = sentencia.executeUpdate();
         }catch (SQLException ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,6 +97,8 @@ public class Cliente {
             while (result.next()){
                 clienteNom.setCedula(result.getString("cedula"));
                 clienteNom.setNombre(result.getString("nombre"));
+                clienteNom.setGenero(result.getString("genero"));
+                clienteNom.setIngresoMensual(result.getString("ingresoMensual"));
                 clienteArray.add(clienteNom);
             }
             try { con.close(); }
