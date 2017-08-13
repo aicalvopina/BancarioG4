@@ -160,7 +160,7 @@ public class Principal extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Cedula", "Nombre", "Genero", "Iingreso Mensual"
+                "Cedula", "Nombre", "Genero", "Ingreso Mensual"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1369,8 +1369,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txtNumCuenta;
     private javax.swing.JTextField txtSaldoInicial;
     private javax.swing.JTextField txtgenero;
-    private javax.swing.JTextField txtingreso;
-    private javax.swing.JTextField txtingreso1;
     private javax.swing.JTextField txtingresomensual;
     // End of variables declaration//GEN-END:variables
 }

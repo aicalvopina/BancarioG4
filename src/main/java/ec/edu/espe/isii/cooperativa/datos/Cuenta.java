@@ -80,7 +80,7 @@ public class Cuenta {
         final Connection con = cnx.getConexion();
         try {
             CallableStatement sentencia;
-            sentencia = con.prepareCall("INSERT INTO `software`.`cuenta` "
+            sentencia = con.prepareCall("INSERT INTO `ingswbancario`.`cuenta` "
                     + "(`cod_cuenta`, `cedula`, `tipo`, `saldo`, `estado`) VALUES (?,?,?,?,?);");
             sentencia.setString(1, cuent.getCodCuenta());
             sentencia.setString(2, cuent.getCedula());
@@ -148,7 +148,7 @@ public class Cuenta {
         final Connection con = cnx.getConexion();
         try {
             CallableStatement sentencia;
-            sentencia = con.prepareCall(" UPDATE `software`.`cuenta` SET `saldo`=? WHERE `cod_cuenta`=?;");
+            sentencia = con.prepareCall(" UPDATE `ingswbancario`.`cuenta` SET `saldo`=? WHERE `cod_cuenta`=?;");
             sentencia.setString(1, Float.toString(sald));
             sentencia.setString(2, cuent);
             valor = sentencia.executeUpdate();
@@ -166,7 +166,7 @@ public class Cuenta {
         final Connection con = cnx.getConexion();
         try {
             CallableStatement sentencia;
-            sentencia = con.prepareCall("UPDATE `software`.`cuenta` SET `estado`='des' WHERE `cod_cuenta`=?;");
+            sentencia = con.prepareCall("UPDATE `ingswbancario`.`cuenta` SET `estado`='des' WHERE `cod_cuenta`=?;");
             sentencia.setString(1, cuent);
             valor = sentencia.executeUpdate();
         }

@@ -103,7 +103,7 @@ public class Movimiento {
         final String fechaCadena = format.format(move.getFecha());
         try {
             CallableStatement sentencia;
-            sentencia = con.prepareCall("INSERT INTO `software`.`movimiento` (`cod_movimiento`, "
+            sentencia = con.prepareCall("INSERT INTO `ingswbancario`.`movimiento` (`cod_movimiento`, "
                     + "`Cuenta`, `tipo`, `fecha`, `monto`, `saldo`) VALUES (?,?,?,?,?,?);");
             sentencia.setString(1, Integer.toString(move.getCodMovimiento()));
             sentencia.setString(2, move.getCuenta());
