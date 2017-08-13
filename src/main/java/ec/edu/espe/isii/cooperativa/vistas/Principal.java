@@ -39,6 +39,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         tabbed = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -54,8 +55,9 @@ public class Principal extends javax.swing.JFrame {
         tabCliente = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        txtgenero = new javax.swing.JTextField();
         txtingresomensual = new javax.swing.JTextField();
+        rbmasculino = new javax.swing.JRadioButton();
+        rbfemenino = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtCed = new javax.swing.JTextField();
@@ -182,6 +184,35 @@ public class Principal extends javax.swing.JFrame {
                 txtingresomensualActionPerformed(evt);
             }
         });
+        txtingresomensual.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtingresomensualKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtingresomensualKeyTyped(evt);
+            }
+        });
+
+        buttonGroup1.add(rbmasculino);
+        rbmasculino.setText("M");
+        rbmasculino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbmasculinoMouseClicked(evt);
+            }
+        });
+        rbmasculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbmasculinoActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(rbfemenino);
+        rbfemenino.setText("F");
+        rbfemenino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbfemeninoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -198,9 +229,9 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(btnCrear)
                         .addGap(45, 45, 45)
                         .addComponent(btnBuscar)
-                        .addGap(41, 41, 41)
+                        .addGap(42, 42, 42)
                         .addComponent(btnLimpar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
@@ -208,21 +239,32 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel15)
                             .addComponent(jLabel16))
                         .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                            .addComponent(txtCedula)
-                            .addComponent(txtgenero)
-                            .addComponent(txtingresomensual))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbtBuscar)
-                            .addComponent(rbtCrear))
-                        .addGap(206, 206, 206))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                                    .addComponent(txtCedula)
+                                    .addComponent(txtingresomensual))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbtBuscar)
+                                    .addComponent(rbtCrear))
+                                .addGap(206, 206, 206))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(rbmasculino)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbfemenino)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(rbtCrear)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbtBuscar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -231,28 +273,24 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(rbtCrear)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbtBuscar)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(txtgenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(rbmasculino)
+                            .addComponent(rbfemenino))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addComponent(txtingresomensual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtingresomensual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrear)
                     .addComponent(btnBuscar)
                     .addComponent(btnLimpar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         tabbed.addTab("Clientes", jPanel1);
@@ -602,6 +640,11 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel11.setText("Cuenta");
 
+        txtCedMovCon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedMovConActionPerformed(evt);
+            }
+        });
         txtCedMovCon.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCedMovConKeyTyped(evt);
@@ -735,107 +778,6 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
-        final char caracter = evt.getKeyChar();
-        String ced = txtCedula.getText();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
-           evt.consume();
-        }
-    }//GEN-LAST:event_txtCedulaKeyTyped
-
-    private void rbtCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtCrearActionPerformed
-        if(rbtCrear.isSelected()) {
-            rbtBuscar.setSelected(false);
-            btnBuscar.setEnabled(false);
-            btnCrear.setEnabled(true);
-            txtNombre.setEnabled(true);
-        }
-        else {
-            rbtBuscar.setSelected(true);
-            btnCrear.setEnabled(false);
-            btnBuscar.setEnabled(true);
-            txtNombre.setEnabled(false);
-            txtNombre.setText("");
-        }
-    }//GEN-LAST:event_rbtCrearActionPerformed
-
-    private void rbtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtBuscarActionPerformed
-        if(rbtBuscar.isSelected()) {
-            rbtCrear.setSelected(false);
-            btnCrear.setEnabled(false);
-            btnBuscar.setEnabled(true);
-            txtNombre.setEnabled(false);
-            txtNombre.setText("");
-        }
-        else {
-            rbtCrear.setSelected(true);
-            btnBuscar.setEnabled(false);
-            btnCrear.setEnabled(true);
-            txtNombre.setEnabled(true);
-        }
-    }//GEN-LAST:event_rbtBuscarActionPerformed
-
-    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
-        txtNombre.setText("");
-        txtCedula.setText("");
-        txtgenero.setText("");
-        txtingresomensual.setText("");
-    }//GEN-LAST:event_btnLimparActionPerformed
-
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        client = new Cliente(txtCedula.getText(), txtNombre.getText(),txtgenero.getText(), txtingresomensual.getText());
-        if(txtCedula.getText().equals("") || txtNombre.getText().equals("")){
-            JOptionPane.showMessageDialog(rootPane, "Ingrese los datos Completos");
-        }
-        else {
-            if(validarRuc(txtCedula.getText()) || validacionRUC(txtCedula.getText())) {
-                if(client.ingresarCliente(client) > 0){
-                    JOptionPane.showMessageDialog(rootPane, "Se guardo exitosamente");
-                }
-                else {
-                    JOptionPane.showMessageDialog(rootPane, "Ha ocurrido un error, intente nuevamente");
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(rootPane, "RUC o cedula invalidos");
-            }
-            final ArrayList<Cliente> clientArray = client.buscarCliente(txtCedula.getText());
-            final DefaultTableModel modelo = (DefaultTableModel) tabCliente.getModel();
-            modelo.setRowCount(0);
-            for (int i = 0; i < clientArray.size(); i++) {
-                Object[] fila = new Object[4];
-                final Cliente client = clientArray.get(i);
-                fila[0] = client.getCedula();
-                fila[1] = client.getNombre();
-                fila[2] = client.getGenero();
-                fila[3] = client.getIngresoMensual();
-                modelo.addRow(fila);
-            }
-        }
-    }//GEN-LAST:event_btnCrearActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        if(validarRuc(txtCedula.getText()) == false && validacionRUC(txtCedula.getText()) == false) {
-            JOptionPane.showMessageDialog(rootPane, "Ingrese la cedula o RUC correctos");
-        }
-        else {
-            client = new Cliente();
-            final ArrayList<Cliente> clientArray = client.buscarCliente(txtCedula.getText());
-            final DefaultTableModel modelo = (DefaultTableModel) tabCliente.getModel();
-            modelo.setRowCount(0);
-            for (int i = 0; i < clientArray.size(); i++) {
-                Object[] fila = new Object[4];
-                final Cliente client = clientArray.get(i);
-                fila[0] = client.getCedula();
-                fila[1] = client.getNombre();
-                fila[2] = client.getGenero();
-                fila[3] = client.getIngresoMensual();
-                modelo.addRow(fila);
-            }
-        }
-    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtCedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedKeyTyped
         final char caracter = evt.getKeyChar();
@@ -1181,9 +1123,138 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDesCuActionPerformed
 
+    private void txtCedMovConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedMovConActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedMovConActionPerformed
+
+    private void rbfemeninoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbfemeninoMouseClicked
+
+    }//GEN-LAST:event_rbfemeninoMouseClicked
+
+    private void rbmasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbmasculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbmasculinoActionPerformed
+
+    private void rbmasculinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbmasculinoMouseClicked
+
+    }//GEN-LAST:event_rbmasculinoMouseClicked
+
+    private void txtingresomensualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtingresomensualKeyTyped
+        final char caracter = evt.getKeyChar();
+        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') && caracter != '.') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtingresomensualKeyTyped
+
+    private void txtingresomensualKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtingresomensualKeyPressed
+
+    }//GEN-LAST:event_txtingresomensualKeyPressed
+
     private void txtingresomensualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtingresomensualActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtingresomensualActionPerformed
+
+    private void rbtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtBuscarActionPerformed
+        if(rbtBuscar.isSelected()) {
+            rbtCrear.setSelected(false);
+            btnCrear.setEnabled(false);
+            btnBuscar.setEnabled(true);
+            txtNombre.setEnabled(false);
+            txtNombre.setText("");
+        }
+        else {
+            rbtCrear.setSelected(true);
+            btnBuscar.setEnabled(false);
+            btnCrear.setEnabled(true);
+            txtNombre.setEnabled(true);
+        }
+    }//GEN-LAST:event_rbtBuscarActionPerformed
+
+    private void rbtCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtCrearActionPerformed
+        if(rbtCrear.isSelected()) {
+            rbtBuscar.setSelected(false);
+            btnBuscar.setEnabled(false);
+            btnCrear.setEnabled(true);
+            txtNombre.setEnabled(true);
+        }
+        else {
+            rbtBuscar.setSelected(true);
+            btnCrear.setEnabled(false);
+            btnBuscar.setEnabled(true);
+            txtNombre.setEnabled(false);
+            txtNombre.setText("");
+        }
+    }//GEN-LAST:event_rbtCrearActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+        txtNombre.setText("");
+        txtCedula.setText("");
+        txtingresomensual.setText("");
+        buttonGroup1.clearSelection();
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        if(validarRuc(txtCedula.getText()) == false && validacionRUC(txtCedula.getText()) == false) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese la cedula o RUC correctos");
+        }
+        else {
+            client = new Cliente();
+            final ArrayList<Cliente> clientArray = client.buscarCliente(txtCedula.getText());
+            final DefaultTableModel modelo = (DefaultTableModel) tabCliente.getModel();
+            modelo.setRowCount(0);
+            for (int i = 0; i < clientArray.size(); i++) {
+                Object[] fila = new Object[4];
+                final Cliente client = clientArray.get(i);
+                fila[0] = client.getCedula();
+                fila[1] = client.getNombre();
+                fila[2] = client.getGenero();
+                fila[3] = client.getIngresoMensual();
+                modelo.addRow(fila);
+            }
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        if(rbmasculino.isSelected())client = new Cliente(txtCedula.getText(), txtNombre.getText(),txtingresomensual.getText(),rbmasculino.getText());
+        if(rbfemenino.isSelected())client = new Cliente(txtCedula.getText(), txtNombre.getText(),txtingresomensual.getText(),rbfemenino.getText());
+        if(txtCedula.getText().equals("") || txtNombre.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Ingrese los datos Completos");
+        }
+        else {
+            if(validarRuc(txtCedula.getText()) || validacionRUC(txtCedula.getText())) {
+                if(client.ingresarCliente(client) > 0){
+                    JOptionPane.showMessageDialog(rootPane, "Se guardo exitosamente");
+                }
+                else {
+                    JOptionPane.showMessageDialog(rootPane, "Ha ocurrido un error, intente nuevamente");
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(rootPane, "RUC o cedula invalidos");
+            }
+            final ArrayList<Cliente> clientArray = client.buscarCliente(txtCedula.getText());
+            final DefaultTableModel modelo = (DefaultTableModel) tabCliente.getModel();
+            modelo.setRowCount(0);
+            for (int i = 0; i < clientArray.size(); i++) {
+                Object[] fila = new Object[4];
+                final Cliente client = clientArray.get(i);
+                fila[0] = client.getCedula();
+                fila[1] = client.getNombre();
+                fila[2] = client.getGenero();
+                fila[3] = client.getIngresoMensual();
+                modelo.addRow(fila);
+            }
+        }
+    }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+        final char caracter = evt.getKeyChar();
+        String ced = txtCedula.getText();
+        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCedulaKeyTyped
 
     public static boolean validarRuc(final String ced) {
         boolean isValid = false;
@@ -1317,6 +1388,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpiarCuenta;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevoMov;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbCuentas;
     private javax.swing.JComboBox<String> cmbCuentasCon;
     private javax.swing.JComboBox<String> cmbDesCu;
@@ -1349,6 +1421,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JRadioButton rbfemenino;
+    private javax.swing.JRadioButton rbmasculino;
     private javax.swing.JRadioButton rbtBuscar;
     private javax.swing.JRadioButton rbtCrear;
     private javax.swing.JRadioButton rbtCredito;
@@ -1368,7 +1442,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumCuenta;
     private javax.swing.JTextField txtSaldoInicial;
-    private javax.swing.JTextField txtgenero;
     private javax.swing.JTextField txtingresomensual;
     // End of variables declaration//GEN-END:variables
 }

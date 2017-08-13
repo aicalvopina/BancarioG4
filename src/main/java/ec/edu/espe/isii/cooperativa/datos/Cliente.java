@@ -71,11 +71,11 @@ public class Cliente {
         final Connection con = cnx.getConexion();
         try{
             CallableStatement sentencia;
-            sentencia = con.prepareCall("INSERT INTO `ingswbancario`.`cliente` (`cedula`, `nombre`,`genero`,`sueldo`) VALUES (?,?,?,?);");
+            sentencia = con.prepareCall("INSERT INTO `ingswbancario`.`cliente` (`cedula`, `nombre`,`sueldo`,`genero`) VALUES (?,?,?,?);");
             sentencia.setString(1, clien.getCedula());
-            sentencia.setString(2, clien.getNombre());
-            sentencia.setString(3, clien.getGenero());            
+            sentencia.setString(2, clien.getNombre());    
             sentencia.setString(4, clien.getIngresoMensual());
+            sentencia.setString(3, clien.getGenero());        
             valor = sentencia.executeUpdate();
         }catch (SQLException ex) {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,7 +98,7 @@ public class Cliente {
                 clienteNom.setCedula(result.getString("cedula"));
                 clienteNom.setNombre(result.getString("nombre"));
                 clienteNom.setGenero(result.getString("genero"));
-                clienteNom.setIngresoMensual(result.getString("ingresoMensual"));                
+                clienteNom.setIngresoMensual(result.getString("sueldo"));                
                 clienteArray.add(clienteNom);
             }
             try { con.close(); }
