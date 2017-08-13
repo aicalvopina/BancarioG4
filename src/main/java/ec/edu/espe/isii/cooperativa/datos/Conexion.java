@@ -21,7 +21,7 @@ public class Conexion {
     final public Connection getConexion() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/software","root","12345");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/ingswbancario","root","root");
         }
         catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);

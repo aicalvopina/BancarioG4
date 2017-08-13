@@ -8,6 +8,7 @@ package ec.edu.espe.isii.cooperativa.vistas;
 import ec.edu.espe.isii.cooperativa.datos.Cliente;
 import ec.edu.espe.isii.cooperativa.datos.Cuenta;
 import ec.edu.espe.isii.cooperativa.datos.Movimiento;
+import ec.edu.espe.isii.cooperativa.datos.Prestamo;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,9 +20,12 @@ import javax.swing.table.DefaultTableModel;
  * @author pablo
  */
 public class Principal extends javax.swing.JFrame {
+
     Cliente client;
     Cuenta cuent;
     Movimiento move;
+    Prestamo prestamo;
+
     /**
      * Creates new form Principal.
      */
@@ -66,7 +70,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtSaldoInicial = new javax.swing.JTextField();
-        cmbTipo = new javax.swing.JComboBox<String>();
+        cmbTipo = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
         btnLimpiarCuenta = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -75,7 +79,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtCedMov = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        cmbCuentas = new javax.swing.JComboBox<String>();
+        cmbCuentas = new javax.swing.JComboBox<>();
         rbtDebito = new javax.swing.JRadioButton();
         rbtCredito = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
@@ -92,11 +96,11 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tabCuenta1 = new javax.swing.JTable();
         btnDesCu = new javax.swing.JButton();
-        cmbDesCu = new javax.swing.JComboBox<String>();
+        cmbDesCu = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cmbCuentasCon = new javax.swing.JComboBox<String>();
+        cmbCuentasCon = new javax.swing.JComboBox<>();
         txtCedMovCon = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -106,6 +110,18 @@ public class Principal extends javax.swing.JFrame {
         btnNuevo = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        txtCuentaPrestamo = new javax.swing.JTextField();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tabPrestamo = new javax.swing.JTable();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        txtinteres = new javax.swing.JTextField();
+        txtperiodo = new javax.swing.JTextField();
+        txtmonto = new javax.swing.JTextField();
+        btncalcular = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -219,78 +235,79 @@ public class Principal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(166, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCrear)
-                        .addGap(45, 45, 45)
-                        .addComponent(btnBuscar)
-                        .addGap(42, 42, 42)
-                        .addComponent(btnLimpar)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16))
-                        .addGap(39, 39, 39)
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                                    .addComponent(txtCedula)
-                                    .addComponent(txtingresomensual))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rbtBuscar)
-                                    .addComponent(rbtCrear))
-                                .addGap(206, 206, 206))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
                                 .addComponent(rbmasculino)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbfemenino))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtCedula))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel16)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtingresomensual)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(rbtCrear)
+                            .addComponent(btnCrear))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbfemenino)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addComponent(btnBuscar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLimpar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(rbtBuscar)))))
+                .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(rbtCrear)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbtBuscar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(rbmasculino)
-                            .addComponent(rbfemenino))))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtingresomensual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtingresomensual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(29, 29, 29)
+                    .addComponent(jLabel15)
+                    .addComponent(rbmasculino)
+                    .addComponent(rbfemenino))
+                .addGap(56, 56, 56)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtCrear)
+                    .addComponent(rbtBuscar))
+                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrear)
                     .addComponent(btnBuscar)
-                    .addComponent(btnLimpar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                    .addComponent(btnLimpar)))
         );
 
         tabbed.addTab("Clientes", jPanel1);
@@ -321,7 +338,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ahorros", "Corriente" }));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ahorros", "Corriente" }));
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -381,7 +398,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,7 +421,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSaldoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -507,7 +524,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnNuevoMov, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAgregarMov, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -538,7 +555,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         tabbed.addTab("Movimientos", jPanel3);
@@ -595,7 +612,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(173, Short.MAX_VALUE)
+                .addContainerGap(129, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -631,7 +648,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(btnDesCu))
                 .addGap(96, 96, 96)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
         tabbed.addTab("Consultar Cuentas", jPanel4);
@@ -639,6 +656,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel10.setText("Ingrese la Cedula");
 
         jLabel11.setText("Cuenta");
+
+        cmbCuentasCon.setName(""); // NOI18N
 
         txtCedMovCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -695,7 +714,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 44, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -754,10 +773,131 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         tabbed.addTab("Consultar Movimientos", jPanel5);
+
+        jLabel19.setText("Numero de cuenta:");
+
+        txtCuentaPrestamo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCuentaPrestamoKeyTyped(evt);
+            }
+        });
+
+        tabPrestamo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Mes", "Saldo Inicial", "Interes", "Amortizacion", "Pago", "Saldo Final"
+            }
+        ));
+        jScrollPane6.setViewportView(tabPrestamo);
+
+        jLabel20.setText("Monto de Prestamo:");
+
+        jLabel17.setText("Periodo (meses):");
+
+        jLabel18.setText("Taza de interes:");
+
+        txtinteres.setEnabled(false);
+        txtinteres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtinteresKeyTyped(evt);
+            }
+        });
+
+        txtperiodo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtperiodoKeyTyped(evt);
+            }
+        });
+
+        txtmonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmontoActionPerformed(evt);
+            }
+        });
+        txtmonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtmontoKeyTyped(evt);
+            }
+        });
+
+        btncalcular.setText("Calcular");
+        btncalcular.setActionCommand("");
+        btncalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncalcularActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(8, 8, 8)
+                                .addComponent(txtCuentaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel18))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtinteres, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtperiodo)
+                                        .addComponent(txtmonto))))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(btncalcular)))
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(txtCuentaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(txtperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(txtmonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(txtinteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addComponent(btncalcular))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(75, 75, 75))
+        );
+
+        tabbed.addTab("Simulador Prestamos", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -782,58 +922,53 @@ public class Principal extends javax.swing.JFrame {
     private void txtCedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedKeyTyped
         final char caracter = evt.getKeyChar();
         final String ced = txtCed.getText();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
-           evt.consume();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
+            evt.consume();
         }
     }//GEN-LAST:event_txtCedKeyTyped
 
     private void txtSaldoInicialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoInicialKeyTyped
         final char caracter = evt.getKeyChar();
         final String ced = txtCedula.getText();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') && caracter != '.') {
-           evt.consume();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') && caracter != '.') {
+            evt.consume();
         }
     }//GEN-LAST:event_txtSaldoInicialKeyTyped
 
     private void txtNumCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumCuentaKeyTyped
         final char caracter = evt.getKeyChar();
         final String ced = txtNumCuenta.getText();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 8) {
-           evt.consume();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 8) {
+            evt.consume();
         }
     }//GEN-LAST:event_txtNumCuentaKeyTyped
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         client = new Cliente();
         String numCuenta;
-        if(txtCed.getText().equals("") || txtNumCuenta.getText().equals("") || txtSaldoInicial.getText().equals("")
-                || client.buscarClienteN(txtCed.getText())== false) {
+        if (txtCed.getText().equals("") || txtNumCuenta.getText().equals("") || txtSaldoInicial.getText().equals("")
+                || client.buscarClienteN(txtCed.getText()) == false) {
             JOptionPane.showMessageDialog(rootPane, "El cliente no existe o los datos son incompletos");
-        }
-        else {
+        } else {
             numCuenta = txtNumCuenta.getText();
             try {
-                if(cmbTipo.getSelectedItem().toString().equals("Ahorros")) {
+                if (cmbTipo.getSelectedItem().toString().equals("Ahorros")) {
                     cuent = new Cuenta(txtNumCuenta.getText(), txtCed.getText(), "aho",
                             "act", Float.parseFloat(txtSaldoInicial.getText()));
-                }
-                else {
+                } else {
                     cuent = new Cuenta(txtNumCuenta.getText(), txtCed.getText(), "cor",
                             "act", Float.parseFloat(txtSaldoInicial.getText()));
                 }
-                if((validarRuc(txtCed.getText()) || validacionRUC(txtCed.getText())) && numCuenta.length() == 8) {
-                    if(cuent.ingresarCu(cuent) > 0) {
+                if ((validarRuc(txtCed.getText()) || validacionRUC(txtCed.getText())) && numCuenta.length() == 8) {
+                    if (cuent.ingresarCu(cuent) > 0) {
                         JOptionPane.showMessageDialog(rootPane, "Se guardo exitosamente");
-                    }
-                    else {
+                    } else {
                         JOptionPane.showMessageDialog(rootPane, "Ha ocurrido un error, intente nuevamente");
                     }
-                }
-                else {
+                } else {
                     JOptionPane.showMessageDialog(rootPane, "RUC, cedula o Numero de Cuenta invalidos");
                 }
-            }
-            catch(Exception e) {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, "Saldo Incorrecto");
             }
 
@@ -864,46 +999,44 @@ public class Principal extends javax.swing.JFrame {
         cmbCuentas.removeAllItems();
         char caracter = evt.getKeyChar();
         final String ced = txtCedMov.getText();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
-           evt.consume();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
+            evt.consume();
         }
-        if(ced.length() == 13 || ced.length() == 10) {
+        if (ced.length() == 13 || ced.length() == 10) {
             ArrayList<Cuenta> aux = new ArrayList<Cuenta>();
             aux = cuent.buscarCuenta(ced);
-            if(aux.size() > 0) {
-                for(int i = 0; i < aux.size(); i++) {
-                    if(aux.get(i).getEstado().equals("act"))
+            if (aux.size() > 0) {
+                for (int i = 0; i < aux.size(); i++) {
+                    if (aux.get(i).getEstado().equals("act")) {
                         cmbCuentas.addItem(aux.get(i).getCodCuenta());
+                    }
                 }
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "Cliente no encontrado");
             }
         }
     }//GEN-LAST:event_txtCedMovKeyTyped
 
     private void rbtDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtDebitoActionPerformed
-        if(rbtDebito.isSelected()) {
+        if (rbtDebito.isSelected()) {
             rbtCredito.setSelected(false);
-        }
-        else {
+        } else {
             rbtCredito.setSelected(true);
         }
     }//GEN-LAST:event_rbtDebitoActionPerformed
 
     private void rbtCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtCreditoActionPerformed
-        if(rbtCredito.isSelected()) {
+        if (rbtCredito.isSelected()) {
             rbtDebito.setSelected(false);
-        }
-        else {
+        } else {
             rbtDebito.setSelected(true);
         }
     }//GEN-LAST:event_rbtCreditoActionPerformed
 
     private void txtMontoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoKeyTyped
         final char caracter = evt.getKeyChar();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') && caracter != '.') {
-           evt.consume();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') && caracter != '.') {
+            evt.consume();
         }
     }//GEN-LAST:event_txtMontoKeyTyped
 
@@ -913,44 +1046,40 @@ public class Principal extends javax.swing.JFrame {
         move = new Movimiento();
         ArrayList<Cuenta> cuentA;
         ArrayList<Cuenta> cuentB;
-        if(!txtCedMov.getText().equals("") || !cmbCuentas.getSelectedItem().equals("") ||
-                !txtMonto.getText().equals("")) {
+        if (!txtCedMov.getText().equals("") || !cmbCuentas.getSelectedItem().equals("")
+                || !txtMonto.getText().equals("")) {
             float mont = 0, sald = 0;
             cuentA = new ArrayList<Cuenta>();
             cuentA = cuent.buscarCuenta(txtCedMov.getText(), cmbCuentas.getSelectedItem().toString());
             try {
                 mont = Float.parseFloat(txtMonto.getText());
                 sald = cuentA.get(0).getSaldo();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "El monto ingresado es invalido");
             }
-            catch(Exception e){
-                JOptionPane.showMessageDialog(rootPane, "El monto ingresado es invalido"); }
-            if(mont > sald && rbtDebito.isSelected()) {
+            if (mont > sald && rbtDebito.isSelected()) {
                 JOptionPane.showMessageDialog(rootPane, "Saldo Insuficinete");
-            }
-            else {
-                if(rbtDebito.isSelected()) {
-                    if(cuent.actualizarCu(cmbCuentas.getSelectedItem().toString(), sald-mont) > 0){
+            } else {
+                if (rbtDebito.isSelected()) {
+                    if (cuent.actualizarCu(cmbCuentas.getSelectedItem().toString(), sald - mont) > 0) {
                         cuentB = new ArrayList<Cuenta>();
                         cuentB = cuent.buscarCuenta(txtCedMov.getText(), cmbCuentas.getSelectedItem().toString());
                         move = new Movimiento(cmbCuentas.getSelectedItem().toString(), "deb",
                                 fecha, mont, cuentB.get(0).getSaldo());
-                        if(move.ingresarMovimiento(move) > 0) {
+                        if (move.ingresarMovimiento(move) > 0) {
                             JOptionPane.showMessageDialog(rootPane, "Se ha ingresado correctamente");
-                        }
-                        else {
+                        } else {
                             JOptionPane.showMessageDialog(rootPane, "Ha ocurrido un error intente nuevamente");
                         }
                     }
-                }
-                else {
-                    if(cuent.actualizarCu(cmbCuentas.getSelectedItem().toString(), sald+mont) > 0) {
+                } else {
+                    if (cuent.actualizarCu(cmbCuentas.getSelectedItem().toString(), sald + mont) > 0) {
                         cuentB = new ArrayList<Cuenta>();
                         cuentB = cuent.buscarCuenta(txtCedMov.getText(), cmbCuentas.getSelectedItem().toString());
                         move = new Movimiento(cmbCuentas.getSelectedItem().toString(), "cre", fecha, mont, cuentB.get(0).getSaldo());
-                        if(move.ingresarMovimiento(move) > 0) {
+                        if (move.ingresarMovimiento(move) > 0) {
                             JOptionPane.showMessageDialog(rootPane, "Se ha ingresado correctamente");
-                        }
-                        else {
+                        } else {
                             JOptionPane.showMessageDialog(rootPane, "Ha ocurrido un error intente nuevamente");
                         }
                     }
@@ -970,8 +1099,7 @@ public class Principal extends javax.swing.JFrame {
                 fila[5] = move.getSaldo();
                 modelo.addRow(fila);
             }
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Ingrese datos validos");
         }
     }//GEN-LAST:event_btnAgregarMovActionPerformed
@@ -989,21 +1117,20 @@ public class Principal extends javax.swing.JFrame {
         cmbCuentasCon.removeAllItems();
         final char caracter = evt.getKeyChar();
         final String ced = txtCedMovCon.getText();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
-           evt.consume();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
+            evt.consume();
         }
 
-        if(ced.length() == 13 || ced.length() == 10) {
+        if (ced.length() == 13 || ced.length() == 10) {
             ArrayList<Cuenta> cuentArray = new ArrayList<Cuenta>();
             cuentArray = cuent.buscarCuenta(ced);
-            if(cuentArray.size() > 0) {
-                for(int i = 0; i < cuentArray.size(); i++) {
-                    if(cuentArray.get(i).getEstado().equals("act")) {
+            if (cuentArray.size() > 0) {
+                for (int i = 0; i < cuentArray.size(); i++) {
+                    if (cuentArray.get(i).getEstado().equals("act")) {
                         cmbCuentasCon.addItem(cuentArray.get(i).getCodCuenta());
                     }
                 }
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "Cliente no encontrado");
             }
         }
@@ -1015,10 +1142,10 @@ public class Principal extends javax.swing.JFrame {
         ArrayList<Movimiento> moveArray = new ArrayList<Movimiento>();
         final Date dateStart = jDateChooser1.getDate();
         final Date dateEnd = jDateChooser2.getDate();
-        if(!txtCedMovCon.getText().equals("") || !cmbCuentasCon.getSelectedItem().equals("")) {
+        if (!txtCedMovCon.getText().equals("") || !cmbCuentasCon.getSelectedItem().equals("")) {
             String start = format.format(dateStart);
             String end = format.format(dateEnd);
-            if(dateStart.before(dateEnd)) {
+            if (dateStart.before(dateEnd)) {
                 moveArray = move.buscarMovimientoFecha(cmbCuentasCon.getSelectedItem().toString(), dateStart, dateEnd);
                 final DefaultTableModel modelo = (DefaultTableModel) tabConMov.getModel();
                 modelo.setRowCount(0);
@@ -1033,12 +1160,10 @@ public class Principal extends javax.swing.JFrame {
                     fila[5] = move.getSaldo();
                     modelo.addRow(fila);
                 }
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "Rango de Fechas invalido");
             }
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Ingrese datos Correctos");
         }
     }//GEN-LAST:event_btnBuscarMovActionPerformed
@@ -1053,9 +1178,9 @@ public class Principal extends javax.swing.JFrame {
     private void btnCuBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuBuscarActionPerformed
         cuent = new Cuenta();
         ArrayList<Cuenta> cuentArray = new ArrayList<Cuenta>();
-        if(!txtCedCu.getText().equals("")) {
+        if (!txtCedCu.getText().equals("")) {
             cuentArray = cuent.buscarCuenta(txtCedCu.getText());
-            if(cuentArray.size() > 0) {
+            if (cuentArray.size() > 0) {
                 DefaultTableModel modelo = (DefaultTableModel) tabCuenta1.getModel();
                 modelo.setRowCount(0);
                 for (int i = 0; i < cuentArray.size(); i++) {
@@ -1068,12 +1193,10 @@ public class Principal extends javax.swing.JFrame {
                     fila[4] = cuent.getEstado();
                     modelo.addRow(fila);
                 }
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "Cliente no encontrado");
             }
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Ingrese una cedula o RUC");
         }
     }//GEN-LAST:event_btnCuBuscarActionPerformed
@@ -1083,19 +1206,19 @@ public class Principal extends javax.swing.JFrame {
         cmbDesCu.removeAllItems();
         cuent = new Cuenta();
         final String ced = txtCedCu.getText();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
-           evt.consume();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
+            evt.consume();
         }
-        if(ced.length() == 13 || ced.length() == 10) {
+        if (ced.length() == 13 || ced.length() == 10) {
             ArrayList<Cuenta> cuentArray = new ArrayList<Cuenta>();
             cuentArray = cuent.buscarCuenta(ced);
-            if(cuentArray.size() > 0) {
-                for(int i = 0; i < cuentArray.size(); i++) {
-                    if(cuentArray.get(i).getEstado().equals("act"))
+            if (cuentArray.size() > 0) {
+                for (int i = 0; i < cuentArray.size(); i++) {
+                    if (cuentArray.get(i).getEstado().equals("act")) {
                         cmbDesCu.addItem(cuentArray.get(i).getCodCuenta());
+                    }
                 }
-            }
-            else  {
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "Cliente no encontrado");
             }
         }
@@ -1110,18 +1233,102 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnDesCuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesCuActionPerformed
         cuent = new Cuenta();
-        if(!txtCedCu.getText().equals("") && !cmbDesCu.getSelectedItem().toString().equals("")) {
-            if(JOptionPane.showConfirmDialog(rootPane, "Esta seguro que desae desabilitar la cuenta con"
-                    + " el numero" + cmbDesCu.getSelectedItem().toString() +", no prodra vovlver a usarla") == 0) {
-                if(cuent.actualizarCuenta(cmbDesCu.getSelectedItem().toString()) > 0) {
+        if (!txtCedCu.getText().equals("") && !cmbDesCu.getSelectedItem().toString().equals("")) {
+            if (JOptionPane.showConfirmDialog(rootPane, "Esta seguro que desae desabilitar la cuenta con"
+                    + " el numero" + cmbDesCu.getSelectedItem().toString() + ", no prodra vovlver a usarla") == 0) {
+                if (cuent.actualizarCuenta(cmbDesCu.getSelectedItem().toString()) > 0) {
                     JOptionPane.showMessageDialog(rootPane, "Se ha desabilitado correctamente");
                 }
             }
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar una cuenta");
         }
     }//GEN-LAST:event_btnDesCuActionPerformed
+
+    private void txtCuentaPrestamoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCuentaPrestamoKeyTyped
+        final char caracter = evt.getKeyChar();
+        String ced = txtCedula.getText();
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCuentaPrestamoKeyTyped
+
+    private void txtinteresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtinteresKeyTyped
+        if (evt.getKeyChar() < (char) 48 || evt.getKeyChar() > (char) 57) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtinteresKeyTyped
+
+    private void txtperiodoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtperiodoKeyTyped
+        if (evt.getKeyChar() < (char) 48 || evt.getKeyChar() > (char) 57) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtperiodoKeyTyped
+
+    private void txtmontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmontoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmontoActionPerformed
+
+    private void txtmontoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmontoKeyTyped
+        if (evt.getKeyChar() < (char) 48 || evt.getKeyChar() > (char) 57) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtmontoKeyTyped
+
+    private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
+        Cuenta cuenta = new Cuenta();
+        if (cuenta.buscarCuentaCodigo(txtCuentaPrestamo.getText())) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese un numero de cuenta correcto");
+        } else {
+            prestamo = new Prestamo();
+            prestamo = prestamo.inicialisarSaldos(txtCuentaPrestamo.getText());
+            int cuotas = Integer.parseInt(txtperiodo.getText());
+            prestamo.setPlaso(cuotas);
+            prestamo.setSaldo(Double.parseDouble(txtmonto.getText()));
+            DefaultTableModel modeloP = (DefaultTableModel) tabPrestamo.getModel();
+            modeloP.setRowCount(0);
+            double sal = prestamo.getSaldoMaximo();
+            double interes = 0;
+            if (prestamo.getSaldo() <= sal) {
+                if (cuotas > 2 && cuotas < 37) {
+                    if (cuotas < 12) {
+                        txtinteres.setText("10%");
+                        interes = 0.10;
+                    } else {
+                        txtinteres.setText("16%");
+                        interes = 0.16;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "El numero de cuotas no debe ser menos a 3 ni mayor a 36");
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Prestamo no consedido: saldo insuficiente puede pedir hasta" + prestamo.getSaldoMaximo());
+            }
+            double pagoMensual = prestamo.PagoMensual(prestamo.getSaldo(), interes / 12, cuotas);
+            for (int i = 0; i < cuotas; i++) {
+                double pagoInteres = prestamo.getSaldo() * (interes / 12);
+                double amortizado = pagoMensual - pagoInteres;
+                double deudaActual = prestamo.getSaldo() - pagoMensual;
+                Object[] fila = new Object[6];
+                fila[0] = i + 1;
+                fila[1] = String.format("$ %1$.2f",
+                        prestamo.getSaldo());
+                fila[2] = String.format("$ %1$.2f",
+                        pagoInteres);
+                fila[3] = String.format("$ %1$.2f",
+                        amortizado);
+                fila[4] = String.format("$ %1$.2f",
+                        pagoMensual);
+                if (deudaActual < 0) {
+                    deudaActual = 0;
+                }
+                fila[5] = String.format("$ %1$.2f",
+                        deudaActual);
+                modeloP.addRow(fila);
+                prestamo.setSaldo(deudaActual);
+            }
+        }
+    }//GEN-LAST:event_btncalcularActionPerformed
 
     private void txtCedMovConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedMovConActionPerformed
         // TODO add your handling code here:
@@ -1141,7 +1348,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void txtingresomensualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtingresomensualKeyTyped
         final char caracter = evt.getKeyChar();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') && caracter != '.') {
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') && caracter != '.') {
             evt.consume();
         }
     }//GEN-LAST:event_txtingresomensualKeyTyped
@@ -1155,14 +1362,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtingresomensualActionPerformed
 
     private void rbtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtBuscarActionPerformed
-        if(rbtBuscar.isSelected()) {
+        if (rbtBuscar.isSelected()) {
             rbtCrear.setSelected(false);
             btnCrear.setEnabled(false);
             btnBuscar.setEnabled(true);
             txtNombre.setEnabled(false);
             txtNombre.setText("");
-        }
-        else {
+        } else {
             rbtCrear.setSelected(true);
             btnBuscar.setEnabled(false);
             btnCrear.setEnabled(true);
@@ -1171,13 +1377,12 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtBuscarActionPerformed
 
     private void rbtCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtCrearActionPerformed
-        if(rbtCrear.isSelected()) {
+        if (rbtCrear.isSelected()) {
             rbtBuscar.setSelected(false);
             btnBuscar.setEnabled(false);
             btnCrear.setEnabled(true);
             txtNombre.setEnabled(true);
-        }
-        else {
+        } else {
             rbtBuscar.setSelected(true);
             btnCrear.setEnabled(false);
             btnBuscar.setEnabled(true);
@@ -1195,10 +1400,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        if(validarRuc(txtCedula.getText()) == false && validacionRUC(txtCedula.getText()) == false) {
+        if (validarRuc(txtCedula.getText()) == false && validacionRUC(txtCedula.getText()) == false) {
             JOptionPane.showMessageDialog(rootPane, "Ingrese la cedula o RUC correctos");
-        }
-        else {
+        } else {
             client = new Cliente();
             final ArrayList<Cliente> clientArray = client.buscarCliente(txtCedula.getText());
             final DefaultTableModel modelo = (DefaultTableModel) tabCliente.getModel();
@@ -1216,21 +1420,22 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        if(rbmasculino.isSelected())client = new Cliente(txtCedula.getText(), txtNombre.getText(),txtingresomensual.getText(),rbmasculino.getText());
-        if(rbfemenino.isSelected())client = new Cliente(txtCedula.getText(), txtNombre.getText(),txtingresomensual.getText(),rbfemenino.getText());
-        if(txtCedula.getText().equals("") || txtNombre.getText().equals("")){
-            JOptionPane.showMessageDialog(rootPane, "Ingrese los datos Completos");
+        if (rbmasculino.isSelected()) {
+            client = new Cliente(txtCedula.getText(), txtNombre.getText(), txtingresomensual.getText(), rbmasculino.getText());
         }
-        else {
-            if(validarRuc(txtCedula.getText()) || validacionRUC(txtCedula.getText())) {
-                if(client.ingresarCliente(client) > 0){
+        if (rbfemenino.isSelected()) {
+            client = new Cliente(txtCedula.getText(), txtNombre.getText(), txtingresomensual.getText(), rbfemenino.getText());
+        }
+        if (txtCedula.getText().equals("") || txtNombre.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese los datos Completos");
+        } else {
+            if (validarRuc(txtCedula.getText()) || validacionRUC(txtCedula.getText())) {
+                if (client.ingresarCliente(client) > 0) {
                     JOptionPane.showMessageDialog(rootPane, "Se guardo exitosamente");
-                }
-                else {
+                } else {
                     JOptionPane.showMessageDialog(rootPane, "Ha ocurrido un error, intente nuevamente");
                 }
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "RUC o cedula invalidos");
             }
             final ArrayList<Cliente> clientArray = client.buscarCliente(txtCedula.getText());
@@ -1251,7 +1456,7 @@ public class Principal extends javax.swing.JFrame {
     private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
         final char caracter = evt.getKeyChar();
         String ced = txtCedula.getText();
-        if(((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
+        if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
             evt.consume();
         }
     }//GEN-LAST:event_txtCedulaKeyTyped
@@ -1262,11 +1467,10 @@ public class Principal extends javax.swing.JFrame {
 
         if (ced == null || (ced.length() != 13 && ced.length() != 10)) {
             isValid = false;
-        }
-        else {
+        } else {
             cedula = ced.substring(0, 10);
             int prov = Integer.parseInt(cedula.substring(0, 2));
-            if (!((prov > 0) || (prov <= 24)))  {
+            if (!((prov > 0) || (prov <= 24))) {
                 isValid = false;
             }
             int[] d = new int[10];
@@ -1288,12 +1492,11 @@ public class Principal extends javax.swing.JFrame {
 
             int suma = imp + par;
             int d10 = Integer.parseInt((Integer.toString(suma + 10)).substring(0, 1) + "0")
-            - suma;
+                    - suma;
             d10 = (d10 == 10) ? 0 : d10;
             if (d10 == d[9]) {
                 isValid = true;
-            }
-            else {
+            } else {
                 isValid = false;
             }
         }
@@ -1302,14 +1505,13 @@ public class Principal extends javax.swing.JFrame {
 
     public static Boolean validacionRUC(String ruc) {
         int numProvincias = 24;
-        int[] coeficientes = { 4, 3, 2, 7, 6, 5, 4, 3, 2 };
+        int[] coeficientes = {4, 3, 2, 7, 6, 5, 4, 3, 2};
         int constante = 11;
         boolean respDato = false;
 
         if (ruc == null || ruc.length() != 13) {
             respDato = false;
-        }
-        else {
+        } else {
             int prov = Integer.parseInt(ruc.substring(0, 2));
             if (!((prov > 0) && (prov <= numProvincias))) {
                 respDato = false;
@@ -1332,13 +1534,13 @@ public class Principal extends javax.swing.JFrame {
             resp = (aux == 0) ? 0 : resp;
             if (resp == d[9]) {
                 respDato = true;
-            }
-            else {
+            } else {
                 respDato = false;
             }
         }
         return respDato;
     }
+
     /**
      * @param args the command line arguments
      */
@@ -1388,6 +1590,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpiarCuenta;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevoMov;
+    private javax.swing.JButton btncalcular;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbCuentas;
     private javax.swing.JComboBox<String> cmbCuentasCon;
@@ -1403,7 +1606,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1416,11 +1623,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JRadioButton rbfemenino;
     private javax.swing.JRadioButton rbmasculino;
     private javax.swing.JRadioButton rbtBuscar;
@@ -1432,16 +1641,21 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tabCuenta;
     private javax.swing.JTable tabCuenta1;
     private javax.swing.JTable tabMovimiento;
+    private javax.swing.JTable tabPrestamo;
     private javax.swing.JTabbedPane tabbed;
     private javax.swing.JTextField txtCed;
     private javax.swing.JTextField txtCedCu;
     private javax.swing.JTextField txtCedMov;
     private javax.swing.JTextField txtCedMovCon;
     private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCuentaPrestamo;
     private javax.swing.JTextField txtMonto;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumCuenta;
     private javax.swing.JTextField txtSaldoInicial;
     private javax.swing.JTextField txtingresomensual;
+    private javax.swing.JTextField txtinteres;
+    private javax.swing.JTextField txtmonto;
+    private javax.swing.JTextField txtperiodo;
     // End of variables declaration//GEN-END:variables
 }

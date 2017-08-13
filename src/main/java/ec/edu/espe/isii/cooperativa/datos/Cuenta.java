@@ -118,7 +118,22 @@ public class Cuenta {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex); }
         return cuentArray;
     }
-
+    final public boolean buscarCuentaCodigo(final String cuent){
+        int bandera = 0;
+        try {
+            final Connection con = cnx.getConexion();
+            final Statement statement = con.createStatement();
+            final ResultSet result = statement.executeQuery("select count(cod_cuenta) from cuenta where cod_cuenta like '"+cuent+"';");
+            while (result.next()) {
+                bandera = result.getInt(1);
+            }
+            try { con.close(); }
+            catch (SQLException ex) {
+                Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex); }
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex); }
+        return bandera == 0;
+    }
     final public ArrayList<Cuenta> buscarCuenta(final String cedul, final String codCuent) {
         final ArrayList<Cuenta> cuentArray = new ArrayList<Cuenta>();
         try {
