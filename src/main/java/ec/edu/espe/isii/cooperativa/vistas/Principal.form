@@ -26,7 +26,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Archivo"/>
+            <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jmGestionCliente">
