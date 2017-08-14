@@ -15,6 +15,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JCalendar;
+import java.text.DateFormat;
 
 /**
  *
@@ -1683,7 +1684,7 @@ public class Principal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btncalcularActionPerformed
-
+    
     private void txtCedMovConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedMovConActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedMovConActionPerformed

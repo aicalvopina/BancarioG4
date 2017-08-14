@@ -23,10 +23,14 @@
  */
 package ec.edu.espe.isii.cooperativa.datos;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -115,5 +119,31 @@ public class Prestamo {
     public double PagoMensual(double montoPrestamo, double interesMensual, int numeroMeses) {
         return montoPrestamo * interesMensual
                 / (1 - 1 / Math.pow(1 + interesMensual, numeroMeses));
+    }
+    
+    public int nuevoPrestamo(int numero_pago,Prestamo prestamo, String cedula, double interes, double pagoMensual){
+        int valor = 0;
+        java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
+        //System.out.println(dateFormat.format(date));
+        final Connection con = cnx.getConexion();
+        try {
+            CallableStatement sentencia;
+            sentencia = con.prepareCall("INSERT INTO `ingswbancario`.cabecera_prestamo "
+                    + "(`cod_prestamo`, `cliente_cedula`, `monto`, `cuota`, `plazo`,`fecha_aprobacion`,`interes`) "
+                    + "VALUES (?,?,?,?,?,?,?);");
+            sentencia.setString(1, prestamo.getCodigoCuenta());
+            sentencia.setString(2, cedula);
+            sentencia.setDouble(3, prestamo.getSaldo());
+            sentencia.setDouble(4, pagoMensual);
+            sentencia.setInt(5, prestamo.getPlaso());
+            sentencia.setDate(6, sqlDate);
+            sentencia.setDouble(7, interes);
+            valor = sentencia.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex); }
+        try { con.close(); }
+        catch (SQLException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex); }
+        return valor;
     }
 }
