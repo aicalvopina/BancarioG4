@@ -121,7 +121,7 @@ public class Prestamo {
                 / (1 - 1 / Math.pow(1 + interesMensual, numeroMeses));
     }
     
-    public int nuevoPrestamo(int numero_pago,Prestamo prestamo, String cedula, double interes, double pagoMensual){
+    public int nuevoPrestamo(Prestamo prestamo, String cedula, double interes, double pagoMensual){
         int valor = 0;
         java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
         //System.out.println(dateFormat.format(date));

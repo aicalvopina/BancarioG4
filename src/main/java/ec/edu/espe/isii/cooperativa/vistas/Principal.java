@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JCalendar;
 import java.text.DateFormat;
+import com.toedter.calendar.JCalendar;
 
 /**
  *
@@ -27,6 +28,10 @@ public class Principal extends javax.swing.JFrame {
     Cuenta cuent;
     Movimiento move;
     Prestamo prestamo;
+    double sal = 0;
+    double cuotaMaxima = 0;
+    double interes = 0;
+    int cuotas = 0;
 
     /**
      * Creates new form Principal.
@@ -126,6 +131,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jDateChooser2 = new com.toedter.calendar.JCalendar();
+        jDateChooser1 = new com.toedter.calendar.JCalendar();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabConMov = new javax.swing.JTable();
         SimuladorPrestamos = new javax.swing.JPanel();
@@ -894,19 +901,26 @@ public class Principal extends javax.swing.JFrame {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbCuentasCon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
                         .addComponent(jLabel13)
-                        .addGap(50, 50, 50))
-                    .addComponent(txtCedMovCon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                        .addGap(29, 29, 29)
+                        .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addGap(200, 200, 200)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbCuentasCon, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCedMovCon, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -918,11 +932,14 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbCuentasCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
-                .addGap(2, 2, 2))
+                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel12)
+                        .addComponent(jLabel13))
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabConMov.setModel(new javax.swing.table.DefaultTableModel(
@@ -952,25 +969,27 @@ public class Principal extends javax.swing.JFrame {
         busquedaMovimientosLayout.setHorizontalGroup(
             busquedaMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(busquedaMovimientosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(busquedaMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(busquedaMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4)
                     .addGroup(busquedaMovimientosLayout.createSequentialGroup()
                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(32, 32, 32)
                         .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         busquedaMovimientosLayout.setVerticalGroup(
             busquedaMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(busquedaMovimientosLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(busquedaMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(busquedaMovimientosLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addContainerGap())
         );
 
         tabPrestamo.setModel(new javax.swing.table.DefaultTableModel(
@@ -993,6 +1012,11 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel19.setText("Cedula :");
 
+        txtCedulaPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaPrestamoActionPerformed(evt);
+            }
+        });
         txtCedulaPrestamo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCedulaPrestamoKeyTyped(evt);
@@ -1083,6 +1107,12 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnregistrar.setText("Registrar");
+        btnregistrar.setEnabled(false);
+        btnregistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1649,14 +1679,14 @@ public class Principal extends javax.swing.JFrame {
         } else {
             prestamo = new Prestamo();
             prestamo = prestamo.inicialisarSaldos(txtCedulaPrestamo.getText());
-            int cuotas = Integer.parseInt(txtperiodo.getText());
+            cuotas = Integer.parseInt(txtperiodo.getText());
             prestamo.setPlaso(cuotas);
             prestamo.setSaldo(Double.parseDouble(txtmonto.getText()));
             DefaultTableModel modeloP = (DefaultTableModel) tabPrestamo.getModel();
             modeloP.setRowCount(0);
-            double sal = prestamo.getSaldoMaximo();
-            double cuotaMaxima = (new Cliente().obtenerSueldo(txtCedulaPrestamo.getText())) * 0.3;
-            double interes = 0;
+            sal = prestamo.getSaldoMaximo();
+            cuotaMaxima = (new Cliente().obtenerSueldo(txtCedulaPrestamo.getText())) * 0.3;
+            interes = 0;
             if (prestamo.getSaldo() <= sal) {
                 if (cuotas > 2 && cuotas < 37) {
                     if (cuotas < 12) {
@@ -1689,8 +1719,10 @@ public class Principal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "Sugerencia: Baja el monto del prestamo para que se ajuste a 36 meses");
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Sugerencia: Pago: " + sug + " en " + cuotas1 + " cuotas");
-                    txtperiodo.setText(""+cuotas1);
-                    if(cuotas1>12)txtinteres.setText("16%");
+                    txtperiodo.setText("" + cuotas1);
+                    if (cuotas1 > 12) {
+                        txtinteres.setText("16%");
+                    }
                     for (int i = 0; i < cuotas1; i++) {
                         if (band == 1) {
                             break;
@@ -1715,6 +1747,7 @@ public class Principal extends javax.swing.JFrame {
                                 deudaActual);
                         modeloP.addRow(fila);
                         prestamo.setSaldo(deudaActual);
+                        btnregistrar.setEnabled(true);
                     }
                 }
             } else if (cuotas > 36) {
@@ -1744,11 +1777,12 @@ public class Principal extends javax.swing.JFrame {
                             deudaActual);
                     modeloP.addRow(fila);
                     prestamo.setSaldo(deudaActual);
+                    btnregistrar.setEnabled(true);
                 }
             }
         }
     }//GEN-LAST:event_btncalcularActionPerformed
-    
+
     private void txtCedMovConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedMovConActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedMovConActionPerformed
@@ -1969,6 +2003,56 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtCedulaKeyTyped
 
+    private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
+        Cuenta cuenta = new Cuenta();
+        int band = 0;
+        prestamo = new Prestamo();
+        prestamo = prestamo.inicialisarSaldos(txtCedulaPrestamo.getText());
+        cuotas = Integer.parseInt(txtperiodo.getText());
+        prestamo.setPlaso(cuotas);        
+        prestamo.setCodigoCuenta(txtCedulaPrestamo.getText().substring(2,10));
+        prestamo.setSaldo(Double.parseDouble(txtmonto.getText()));
+        DefaultTableModel modeloP = (DefaultTableModel) tabPrestamo.getModel();
+        modeloP.setRowCount(0);
+        sal = prestamo.getSaldoMaximo();
+        cuotaMaxima = (new Cliente().obtenerSueldo(txtCedulaPrestamo.getText())) * 0.3;
+        interes = 0;
+        if (cuotas < 12) {
+            txtinteres.setText("10%");
+            interes = 0.10;
+        } else {
+            txtinteres.setText("16%");
+            interes = 0.16;
+        }
+        double pagoMensual = prestamo.PagoMensual(prestamo.getSaldo(), interes / 12, cuotas);
+        for (int i = 0; i < cuotas; i++) {
+            if (band == 1) {
+                break;
+            }
+            double pagoInteres = prestamo.getSaldo() * (interes / 12);
+            double amortizado = pagoMensual - pagoInteres;
+            double deudaActual = prestamo.getSaldo() - pagoMensual;
+            Object[] fila = new Object[6];
+            fila[0] = i + 1;
+            fila[1] = String.format("$ %1$.2f", prestamo.getSaldo());
+            fila[2] = String.format("$ %1$.2f", pagoInteres);
+            fila[3] = String.format("$ %1$.2f", amortizado);
+            fila[4] = String.format("$ %1$.2f", pagoMensual);
+            if (deudaActual < 0) {
+                deudaActual = 0;
+            }
+            fila[5] = String.format("$ %1$.2f", deudaActual);
+            modeloP.addRow(fila);
+            prestamo.setSaldo(deudaActual);
+        }
+        String ced = txtCedulaPrestamo.toString();
+        prestamo.nuevoPrestamo(prestamo, ced , interes, pagoMensual);
+    }//GEN-LAST:event_btnregistrarActionPerformed
+
+    private void txtCedulaPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaPrestamoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaPrestamoActionPerformed
+
     public static boolean validarRuc(final String ced) {
         boolean isValid = false;
         String cedula = "0000000000000";
@@ -2063,16 +2147,21 @@ public class Principal extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -2111,6 +2200,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbCuentasCon;
     private javax.swing.JComboBox<String> cmbDesCu;
     private javax.swing.JComboBox<String> cmbTipo;
+    private com.toedter.calendar.JCalendar jDateChooser1;
+    private com.toedter.calendar.JCalendar jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

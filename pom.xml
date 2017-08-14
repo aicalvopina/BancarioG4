@@ -22,7 +22,16 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    <developers>
+    <developers>           
+        <developer>
+            <email>kyubi900@hotmail.com</email>
+            <name>Adrian Calvopiña</name>
+            <roles>
+                <role>Gran lider del Equipo de Mantenimiento</role>
+            </roles>
+            <url>https://github.com/aicalvopina</url>
+            <id>aicalvopina</id>
+        </developer>  
         <developer>
             <email>jhonnyalmeida94@hotmail.com</email>
             <name>Jonathan Almeida</name>
@@ -36,11 +45,11 @@
             <email>dovacho_alex@hotmail.com</email>
             <name>David Suarez</name>
             <roles>
-                <role>Mantenimiento</role>
+                <role>Equipo de Mantenimiento</role>
             </roles>
             <url>https://github.com/dasurezm</url>
             <id>dasurezm</id>
-        </developer>      
+        </developer>  
     </developers>
     <repositories>
         <repository>
