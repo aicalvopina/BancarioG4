@@ -31,6 +31,15 @@
             </roles>
             <url>https://github.com/jsalmeida1</url>
             <id>jsalmeida1</id>
+        </developer>
+        <developer>
+            <email>dovacho_alex@hotmail.com</email>
+            <name>David Suarez</name>
+            <roles>
+                <role>Mantenimiento</role>
+            </roles>
+            <url>https://github.com/dasurezm</url>
+            <id>dasurezm</id>
         </developer>      
     </developers>
     <repositories>
