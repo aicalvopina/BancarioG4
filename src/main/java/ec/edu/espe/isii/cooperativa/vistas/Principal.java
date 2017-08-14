@@ -141,7 +141,9 @@ public class Principal extends javax.swing.JFrame {
         txtinteres = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         btncalcular = new javax.swing.JButton();
+        btnregistrar = new javax.swing.JButton();
         tabbed = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -1029,14 +1031,6 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel17.setText("Periodo (meses):");
 
-        btncalcular.setText("Calcular");
-        btncalcular.setActionCommand("");
-        btncalcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncalcularActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
@@ -1044,25 +1038,20 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCedulaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtmonto)
-                                .addGroup(jPanel14Layout.createSequentialGroup()
-                                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtinteres, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(0, 0, Short.MAX_VALUE)))))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(btncalcular)))
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCedulaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtmonto)
+                        .addGroup(jPanel14Layout.createSequentialGroup()
+                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtinteres, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 0, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
@@ -1084,9 +1073,40 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(txtinteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
+
+        btncalcular.setText("Calcular");
+        btncalcular.setActionCommand("");
+        btncalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncalcularActionPerformed(evt);
+            }
+        });
+
+        btnregistrar.setText("Registrar");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(btncalcular)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnregistrar)
+                .addGap(42, 42, 42))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btncalcular)
+                    .addComponent(btnregistrar))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout SimuladorPrestamosLayout = new javax.swing.GroupLayout(SimuladorPrestamos);
@@ -1095,7 +1115,9 @@ public class Principal extends javax.swing.JFrame {
             SimuladorPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SimuladorPrestamosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(SimuladorPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1106,7 +1128,10 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(SimuladorPrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SimuladorPrestamosLayout.createSequentialGroup()
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
@@ -1624,7 +1649,7 @@ public class Principal extends javax.swing.JFrame {
         Cuenta cuenta = new Cuenta();
         int band = 0;
         if (cuenta.buscarCuentaCodigo(txtCedulaPrestamo.getText())) {
-            JOptionPane.showMessageDialog(rootPane, "La cedula ingresada no corresponde a ningun cliente registrado");        
+            JOptionPane.showMessageDialog(rootPane, "La cedula ingresada no corresponde a ningun cliente registrado");
         } else {
             prestamo = new Prestamo();
             prestamo = prestamo.inicialisarSaldos(txtCedulaPrestamo.getText());
@@ -1649,21 +1674,60 @@ public class Principal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "El numero de cuotas no debe ser menos a 3 ni mayor a 36");
                 }
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Prestamo no consedido: saldo insuficiente, puede pedir hasta " + prestamo.getSaldoMaximo());
+                JOptionPane.showMessageDialog(rootPane, "Prestamo no consedido:"
+                        + "\nPor la condicion economico-social no se te puede dar el prestamosaldo"
+                        + "\nSaldo insuficiente, puede pedir hasta " + prestamo.getSaldoMaximo());
                 band = 1;
             }
             double pagoMensual = prestamo.PagoMensual(prestamo.getSaldo(), interes / 12, cuotas);
-            if (pagoMensual > cuotaMaxima) {                
-                JOptionPane.showMessageDialog(rootPane, pagoMensual);
-                JOptionPane.showMessageDialog(rootPane, cuotaMaxima);
-                JOptionPane.showMessageDialog(rootPane, sal);
-                JOptionPane.showMessageDialog(rootPane, "Prestamo no aprovado cambiar monto o cuotas");
+            if (pagoMensual > cuotaMaxima) {
+                JOptionPane.showMessageDialog(rootPane, "Prestamo no aprovado: cambiar monto o cuotas");
+                double pagoMensual1 = pagoMensual;
+                int cuotas1 = cuotas;
+                while (pagoMensual1 > cuotaMaxima) {
+                    pagoMensual1 = prestamo.PagoMensual(prestamo.getSaldo(), interes / 12, cuotas1);
+                    cuotas1 = cuotas1 + 1;
+                }
+                String sug = String.format("$ %1$.2f", pagoMensual1);
+                if (cuotas1 > 36) {
+                    JOptionPane.showMessageDialog(rootPane, "Sugerencia: Baja el monto del prestamo para que se ajuste a 36 meses");
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Sugerencia: Pago: " + sug + " en " + cuotas1 + " cuotas");
+                    txtperiodo.setText(""+cuotas1);
+                    if(cuotas1>12)txtinteres.setText("16%");
+                    for (int i = 0; i < cuotas1; i++) {
+                        if (band == 1) {
+                            break;
+                        }
+                        double pagoInteres = prestamo.getSaldo() * (interes / 12);
+                        double amortizado = pagoMensual1 - pagoInteres;
+                        double deudaActual = prestamo.getSaldo() - pagoMensual1;
+                        Object[] fila = new Object[6];
+                        fila[0] = i + 1;
+                        fila[1] = String.format("$ %1$.2f",
+                                prestamo.getSaldo());
+                        fila[2] = String.format("$ %1$.2f",
+                                pagoInteres);
+                        fila[3] = String.format("$ %1$.2f",
+                                amortizado);
+                        fila[4] = String.format("$ %1$.2f",
+                                pagoMensual1);
+                        if (deudaActual < 0) {
+                            deudaActual = 0;
+                        }
+                        fila[5] = String.format("$ %1$.2f",
+                                deudaActual);
+                        modeloP.addRow(fila);
+                        prestamo.setSaldo(deudaActual);
+                    }
+                }
             } else if (cuotas > 36) {
                 JOptionPane.showMessageDialog(rootPane, "Prestamo no aprovado debido al que el numero de cuotas supera a los 36 meses");
             } else {
-                JOptionPane.showMessageDialog(rootPane, "");
                 for (int i = 0; i < cuotas; i++) {
-                    if(band==1)break;
+                    if (band == 1) {
+                        break;
+                    }
                     double pagoInteres = prestamo.getSaldo() * (interes / 12);
                     double amortizado = pagoMensual - pagoInteres;
                     double deudaActual = prestamo.getSaldo() - pagoMensual;
@@ -2044,6 +2108,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevoMov;
     private javax.swing.JButton btncalcular;
+    private javax.swing.JButton btnregistrar;
     private javax.swing.JPanel busquedaMovimientos;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbCuentas;
@@ -2079,6 +2144,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
