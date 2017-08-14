@@ -101,7 +101,7 @@ public class Cuenta {
         try {
             final Connection con = cnx.getConexion();
             final Statement statement = con.createStatement();
-            final ResultSet result = statement.executeQuery("SELECT * FROM cuenta WHERE cedula='"+cuent+"';");
+            final ResultSet result = statement.executeQuery("SELECT * FROM cuenta WHERE cedula like '"+cuent+"';");
             while (result.next()) {
                 final Cuenta cuen = new Cuenta();
                 cuen.setCodCuenta(result.getString("cod_cuenta"));
