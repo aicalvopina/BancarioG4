@@ -124,16 +124,16 @@ public class Principal extends javax.swing.JFrame {
         btncalcular = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu14 = new javax.swing.JMenu();
-        jMenu15 = new javax.swing.JMenu();
+        jmNuevoCliente = new javax.swing.JMenu();
+        jmBusquedaCliente = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
-        jMenu13 = new javax.swing.JMenu();
+        jmNuevaCuenta = new javax.swing.JMenu();
+        jmBusquedaCuenta = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
+        jmNuevoMovimiento = new javax.swing.JMenu();
+        jmBusquedaMovimiento = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
+        jmSimuladorPrestamo = new javax.swing.JMenu();
 
         jMenu5.setText("jMenu5");
 
@@ -907,38 +907,38 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.setText("Archivo");
 
-        jMenu14.setText("Nuevo Cliente");
-        jMenu1.add(jMenu14);
+        jmNuevoCliente.setText("Nuevo Cliente");
+        jMenu1.add(jmNuevoCliente);
 
-        jMenu15.setText("Búsqueda de Cliente");
-        jMenu1.add(jMenu15);
+        jmBusquedaCliente.setText("Búsqueda de Cliente");
+        jMenu1.add(jmBusquedaCliente);
 
         jMenuBar1.add(jMenu1);
 
         jMenu6.setText("Cuentas");
 
-        jMenu12.setText("Creación de Cuentas");
-        jMenu6.add(jMenu12);
+        jmNuevaCuenta.setText("Creación de Cuentas");
+        jMenu6.add(jmNuevaCuenta);
 
-        jMenu13.setText("Búsqueda de Cuentas");
-        jMenu6.add(jMenu13);
+        jmBusquedaCuenta.setText("Búsqueda de Cuentas");
+        jMenu6.add(jmBusquedaCuenta);
 
         jMenuBar1.add(jMenu6);
 
         jMenu7.setText("Movimiento");
 
-        jMenu11.setText("Creación de Movimientos");
-        jMenu7.add(jMenu11);
+        jmNuevoMovimiento.setText("Creación de Movimientos");
+        jMenu7.add(jmNuevoMovimiento);
 
-        jMenu10.setText("Búsqueda de Movimientos");
-        jMenu7.add(jMenu10);
+        jmBusquedaMovimiento.setText("Búsqueda de Movimientos");
+        jMenu7.add(jmBusquedaMovimiento);
 
         jMenuBar1.add(jMenu7);
 
         jMenu2.setText("Servicios");
 
-        jMenu9.setText("Simulador de Prestamos");
-        jMenu2.add(jMenu9);
+        jmSimuladorPrestamo.setText("Simulador de Prestamos");
+        jMenu2.add(jmSimuladorPrestamo);
 
         jMenuBar1.add(jMenu2);
 
@@ -957,7 +957,7 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabbed, javax.swing.GroupLayout.PREFERRED_SIZE, 533, Short.MAX_VALUE)
+                .addComponent(tabbed)
                 .addContainerGap())
         );
 
@@ -1662,18 +1662,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
-    private javax.swing.JMenu jMenu13;
-    private javax.swing.JMenu jMenu14;
-    private javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1687,6 +1680,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JMenu jmBusquedaCliente;
+    private javax.swing.JMenu jmBusquedaCuenta;
+    private javax.swing.JMenu jmBusquedaMovimiento;
+    private javax.swing.JMenu jmNuevaCuenta;
+    private javax.swing.JMenu jmNuevoCliente;
+    private javax.swing.JMenu jmNuevoMovimiento;
+    private javax.swing.JMenu jmSimuladorPrestamo;
     private javax.swing.JRadioButton rbfemenino;
     private javax.swing.JRadioButton rbmasculino;
     private javax.swing.JRadioButton rbtBuscar;

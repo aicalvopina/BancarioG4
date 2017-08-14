@@ -29,12 +29,12 @@
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu14">
+            <Menu class="javax.swing.JMenu" name="jmNuevoCliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nuevo Cliente"/>
               </Properties>
             </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu15">
+            <Menu class="javax.swing.JMenu" name="jmBusquedaCliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="B&#xfa;squeda de Cliente"/>
               </Properties>
@@ -46,12 +46,12 @@
             <Property name="text" type="java.lang.String" value="Cuentas"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu12">
+            <Menu class="javax.swing.JMenu" name="jmNuevaCuenta">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Creaci&#xf3;n de Cuentas"/>
               </Properties>
             </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu13">
+            <Menu class="javax.swing.JMenu" name="jmBusquedaCuenta">
               <Properties>
                 <Property name="text" type="java.lang.String" value="B&#xfa;squeda de Cuentas"/>
               </Properties>
@@ -63,12 +63,12 @@
             <Property name="text" type="java.lang.String" value="Movimiento"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu11">
+            <Menu class="javax.swing.JMenu" name="jmNuevoMovimiento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Creaci&#xf3;n de Movimientos"/>
               </Properties>
             </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu10">
+            <Menu class="javax.swing.JMenu" name="jmBusquedaMovimiento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="B&#xfa;squeda de Movimientos"/>
               </Properties>
@@ -80,7 +80,7 @@
             <Property name="text" type="java.lang.String" value="Servicios"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu9">
+            <Menu class="javax.swing.JMenu" name="jmSimuladorPrestamo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Simulador de Prestamos"/>
               </Properties>
@@ -125,7 +125,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tabbed" pref="533" max="32767" attributes="0"/>
+              <Component id="tabbed" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
