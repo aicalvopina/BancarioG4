@@ -71,7 +71,7 @@ public class Cliente {
         final Connection con = cnx.getConexion();
         try{
             CallableStatement sentencia;
-            sentencia = con.prepareCall("INSERT INTO `ingswbancario`.`cliente` (`cedula`, `nombre`,`sueldo`,`genero`) VALUES (?,?,?,?);");
+            sentencia = con.prepareCall("INSERT INTO cliente (`cedula`, `nombre`,`sueldo`,`genero`) VALUES (?,?,?,?);");
             sentencia.setString(1, clien.getCedula());
             sentencia.setString(2, clien.getNombre());    
             sentencia.setString(4, clien.getIngresoMensual());

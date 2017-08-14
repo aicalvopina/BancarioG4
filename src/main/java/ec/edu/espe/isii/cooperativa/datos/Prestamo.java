@@ -85,12 +85,12 @@ public class Prestamo {
     *Metodo  para iniciar los saldos basico y maximo que se pueden prestar.
     *@param codigoCuenta codigo de la cuenta ligada al prestamo.
     */
-    final public Prestamo inicialisarSaldos(final String codigoCuenta) {
+    final public Prestamo inicialisarSaldos(final String cedula) {
         Prestamo prestamo = new Prestamo(codigoCuenta);
         try {
             final Connection con = cnx.getConexion();
             final Statement statement = con.createStatement();
-            final ResultSet result = statement.executeQuery("SELECT (avg(saldo)*3) as saldoMaximo FROM movimiento WHERE COD_CUENTA like '" + codigoCuenta + "' and to_days(fecha) between (to_days(now()) - 90) and to_days(now()) ;");
+            final ResultSet result = statement.executeQuery("SELECT avg(m.saldo)*3 FROM movimiento m WHERE COD_CUENTA in (select COD_CUENTA from cuenta where CEDULA like '"+cedula+"') and  to_days(fecha) between (to_days(now()) - 90) and to_days(now());");
             while (result.next()) {
                 prestamo.setSaldoMaximo(result.getDouble(1));
             }
