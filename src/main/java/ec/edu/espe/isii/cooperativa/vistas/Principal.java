@@ -1104,7 +1104,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Archivo");
+        jMenu1.setText("Clientes");
 
         jmGestionCliente.setText("Gestion de Clientes");
         jmGestionCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1640,7 +1640,11 @@ public class Principal extends javax.swing.JFrame {
             double pagoMensual = prestamo.PagoMensual(prestamo.getSaldo(), interes / 12, cuotas);
             if (pagoMensual > cuotaMaxima) {
                 JOptionPane.showMessageDialog(rootPane, "Prestamo no aprovado cambiar monto o cuotas");
-            } else {
+            } 
+            else if ( (prestamo.getSaldo()/cuotaMaxima) > 36  ){
+                JOptionPane.showMessageDialog(rootPane, "Prestamo no aprovado debido al que el numero de cuotas supera a los 36 meses");
+            }
+            else {
                 for (int i = 0; i < cuotas; i++) {
                     double pagoInteres = prestamo.getSaldo() * (interes / 12);
                     double amortizado = pagoMensual - pagoInteres;
