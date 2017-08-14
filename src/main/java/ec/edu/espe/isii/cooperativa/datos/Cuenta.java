@@ -96,19 +96,19 @@ public class Cuenta {
         return valor;
     }
 
-    final public ArrayList<Cuenta> buscarCuenta(final String cuent) {
+    final public ArrayList<Cuenta> buscarCuenta(final String cedula) {
         final ArrayList<Cuenta> cuentArray = new ArrayList<Cuenta>();
         try {
             final Connection con = cnx.getConexion();
             final Statement statement = con.createStatement();
-            final ResultSet result = statement.executeQuery("SELECT * FROM cuenta WHERE cedula like '"+cuent+"';");
+            final ResultSet result = statement.executeQuery("SELECT * FROM cuenta WHERE cedula like '"+cedula+"';");
             while (result.next()) {
                 final Cuenta cuen = new Cuenta();
-                cuen.setCodCuenta(result.getString("cod_cuenta"));
-                cuen.setCedula(result.getString("cedula"));
-                cuen.setTipo(result.getString("tipo"));
-                cuen.setSaldo(Float.parseFloat(result.getString("saldo")));
-                cuen.setEstado(result.getString("estado"));
+                cuen.setCodCuenta(result.getString(1));
+                cuen.setCedula(result.getString(2));
+                cuen.setTipo(result.getString(3));
+                cuen.setSaldo(Float.parseFloat(result.getString(4)));
+                cuen.setEstado(result.getString(5));
                 cuentArray.add(cuen);
             }
             try { con.close(); }

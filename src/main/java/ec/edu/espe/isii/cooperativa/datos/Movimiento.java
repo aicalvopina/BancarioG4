@@ -104,7 +104,7 @@ public class Movimiento {
         try {
             CallableStatement sentencia;
             sentencia = con.prepareCall("INSERT INTO movimiento (`cod_movimiento`, "
-                    + "`Cuenta`, `tipo`, `fecha`, `monto`, `saldo`) VALUES (?,?,?,?,?,?);");
+                    + "`cod_cuenta`, `tipo`, `fecha`, `monto`, `saldo`) VALUES (?,?,?,?,?,?);");
             sentencia.setString(1, Integer.toString(move.getCodMovimiento()));
             sentencia.setString(2, move.getCuenta());
             sentencia.setString(3, move.getTipo());
@@ -126,12 +126,12 @@ public class Movimiento {
         try {
             final Connection con = cnx.getConexion();
             final Statement statement = con.createStatement();
-            final ResultSet result = statement.executeQuery("SELECT * FROM movimiento WHERE cuenta = '"+cuent+"';");
+            final ResultSet result = statement.executeQuery("SELECT * FROM movimiento WHERE cod_cuenta = '"+cuent+"';");
             while (result.next())
             {
                 final Movimiento move = new Movimiento();
                 move.setCodMovimiento(Integer.parseInt(result.getString("cod_movimiento")));
-                move.setCuenta(result.getString("cuenta"));
+                move.setCuenta(result.getString("cod_cuenta"));
                 move.setTipo(result.getString("tipo"));
                 try { move.setFecha(format.parse(result.getString("fecha"))); }
                 catch (ParseException ex) {
@@ -156,12 +156,12 @@ public class Movimiento {
         try {
             final Connection con = cnx.getConexion();
             final Statement statement = con.createStatement();
-            final ResultSet result = statement.executeQuery("SELECT * FROM movimiento WHERE cuenta = '"+cuent
+            final ResultSet result = statement.executeQuery("SELECT * FROM movimiento WHERE cod_cuenta = '"+cuent
                     +"' and fecha  BETWEEN '"+startFormat+"' and '"+endFormat+"'");
             while (result.next()) {
                 final Movimiento move = new Movimiento();
                 move.setCodMovimiento(Integer.parseInt(result.getString("cod_movimiento")));
-                move.setCuenta(result.getString("cuenta"));
+                move.setCuenta(result.getString("cod_cuenta"));
                 move.setTipo(result.getString("tipo"));
                 try {
                     move.setFecha(format.parse(result.getString("fecha")));
