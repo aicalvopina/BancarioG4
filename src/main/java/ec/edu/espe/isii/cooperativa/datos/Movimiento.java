@@ -113,6 +113,7 @@ public class Movimiento {
             sentencia.setString(6, Float.toString(move.getSaldo()));
             valor = sentencia.executeUpdate();
         } catch (SQLException ex) {
+            
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex); }
         try { con.close(); }
         catch (SQLException ex) {
