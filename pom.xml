@@ -24,14 +24,14 @@
     </licenses>
     <developers>
         <developer>
-            <email>kevinsawicki@gmail.com</email>
-            <name>Pablo Guallichico</name>
+            <email>jhonnyalmeida94@hotmail.com</email>
+            <name>Jonathan Almeida</name>
             <roles>
-                <role>Lider del proyecto y desarrollador</role>
+                <role>Desarrollador</role>
             </roles>
-            <url>https://github.com/kevinsawicki</url>
-            <id>Pabloespe</id>
-        </developer>
+            <url>https://github.com/jsalmeida1</url>
+            <id>jsalmeida1</id>
+        </developer>      
     </developers>
     <repositories>
         <repository>
