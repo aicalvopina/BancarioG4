@@ -123,7 +123,7 @@ public class Cuenta {
         try {
             final Connection con = cnx.getConexion();
             final Statement statement = con.createStatement();
-            final ResultSet result = statement.executeQuery("select count(cod_cuenta) from cuenta where cod_cuenta like '"+cuent+"';");
+            final ResultSet result = statement.executeQuery("select count(cod_cuenta) from cuenta where cedula like '"+cuent+"';");
             while (result.next()) {
                 bandera = result.getInt(1);
             }

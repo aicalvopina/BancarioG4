@@ -178,6 +178,7 @@ public class Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabCliente.setEnabled(false);
         jScrollPane1.setViewportView(tabCliente);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
@@ -405,6 +406,7 @@ public class Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabCuenta.setEnabled(false);
         jScrollPane2.setViewportView(tabCuenta);
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
@@ -555,6 +557,7 @@ public class Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabMovimiento.setEnabled(false);
         jScrollPane3.setViewportView(tabMovimiento);
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
@@ -717,6 +720,7 @@ public class Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabCuenta1.setEnabled(false);
         jScrollPane5.setViewportView(tabCuenta1);
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
@@ -942,6 +946,7 @@ public class Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabConMov.setEnabled(false);
         jScrollPane4.setViewportView(tabConMov);
 
         javax.swing.GroupLayout busquedaMovimientosLayout = new javax.swing.GroupLayout(busquedaMovimientos);
@@ -981,6 +986,7 @@ public class Principal extends javax.swing.JFrame {
                 "Mes", "Saldo Inicial", "Interes", "Amortizacion", "Pago", "Saldo Final"
             }
         ));
+        tabPrestamo.setEnabled(false);
         jScrollPane6.setViewportView(tabPrestamo);
 
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
@@ -1616,8 +1622,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
         Cuenta cuenta = new Cuenta();
+        int band = 0;
         if (cuenta.buscarCuentaCodigo(txtCedulaPrestamo.getText())) {
-            JOptionPane.showMessageDialog(rootPane, "La cedula ingresada no corresponde a ningun cliente registrado");
+            JOptionPane.showMessageDialog(rootPane, "La cedula ingresada no corresponde a ningun cliente registrado");        
         } else {
             prestamo = new Prestamo();
             prestamo = prestamo.inicialisarSaldos(txtCedulaPrestamo.getText());
@@ -1642,17 +1649,21 @@ public class Principal extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "El numero de cuotas no debe ser menos a 3 ni mayor a 36");
                 }
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Prestamo no consedido: saldo insuficiente puede pedir hasta" + prestamo.getSaldoMaximo());
+                JOptionPane.showMessageDialog(rootPane, "Prestamo no consedido: saldo insuficiente, puede pedir hasta " + prestamo.getSaldoMaximo());
+                band = 1;
             }
             double pagoMensual = prestamo.PagoMensual(prestamo.getSaldo(), interes / 12, cuotas);
-            if (pagoMensual > cuotaMaxima) {
+            if (pagoMensual > cuotaMaxima) {                
+                JOptionPane.showMessageDialog(rootPane, pagoMensual);
+                JOptionPane.showMessageDialog(rootPane, cuotaMaxima);
+                JOptionPane.showMessageDialog(rootPane, sal);
                 JOptionPane.showMessageDialog(rootPane, "Prestamo no aprovado cambiar monto o cuotas");
-            } 
-            else if ( (prestamo.getSaldo()/cuotaMaxima) > 36  ){
+            } else if (cuotas > 36) {
                 JOptionPane.showMessageDialog(rootPane, "Prestamo no aprovado debido al que el numero de cuotas supera a los 36 meses");
-            }
-            else {
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "");
                 for (int i = 0; i < cuotas; i++) {
+                    if(band==1)break;
                     double pagoInteres = prestamo.getSaldo() * (interes / 12);
                     double amortizado = pagoMensual - pagoInteres;
                     double deudaActual = prestamo.getSaldo() - pagoMensual;
@@ -1784,15 +1795,15 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         if (rbmasculino.isSelected()) {
-            client = new Cliente(txtNombre.getText(), txtCedula.getText(), txtIngreso.getText(), rbmasculino.getText());
+            client = new Cliente(txtCedula.getText(), txtNombre.getText(), txtIngreso.getText(), rbmasculino.getText());
         }
         if (rbfemenino.isSelected()) {
-            client = new Cliente(txtNombre.getText(), txtCedula.getText(), txtIngreso.getText(), rbfemenino.getText());
+            client = new Cliente(txtCedula.getText(), txtNombre.getText(), txtIngreso.getText(), rbfemenino.getText());
         }
         if (txtNombre.getText().equals("") || txtCedula.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Ingrese los datos Completos");
         } else {
-            if (validarRuc(txtNombre.getText()) || validacionRUC(txtNombre.getText())) {
+            if (validarRuc(txtCedula.getText()) || validacionRUC(txtCedula.getText())) {
                 if (client.ingresarCliente(client) > 0) {
                     JOptionPane.showMessageDialog(rootPane, "Se guardo exitosamente");
                 } else {
@@ -1892,7 +1903,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
         final char caracter = evt.getKeyChar();
-        String ced = txtNombre.getText();
+        String ced = txtCedula.getText();
         if (((caracter < '0') || (caracter > '9')) && (caracter != '\b') || ced.length() >= 13) {
             evt.consume();
         }
