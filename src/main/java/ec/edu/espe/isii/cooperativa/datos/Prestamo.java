@@ -146,4 +146,30 @@ public class Prestamo {
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex); }
         return valor;
     }
+    public int nuevaTablaAmortizacion(int numero_pago,Prestamo prestamo, String cedula, double interes, double pagoMensual, double amortizado, double pagomensual, double saldofinal){
+        int valor = 0;
+        java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
+        //System.out.println(dateFormat.format(date));
+        final Connection con = cnx.getConexion();
+        try {
+            CallableStatement sentencia;
+            sentencia = con.prepareCall("INSERT INTO `ingswbancario`.tabla_amortizacion "
+                    + "(`cod_prestamo`, `numero_pago`, `fecha_pago`, `saldo_inicial`, `interes`,`amortizacion`,`pago`,`saldo_final`) "
+                    + "VALUES (?,?,?,?,?,?,?,?);");
+            sentencia.setString(1, prestamo.getCodigoCuenta());
+            sentencia.setInt(2, numero_pago);
+            sentencia.setDate(3, sqlDate);
+            sentencia.setDouble(4, prestamo.getPlaso());
+            sentencia.setDouble(5, interes);
+            sentencia.setDouble(6, amortizado);
+            sentencia.setDouble(7, pagomensual);
+            sentencia.setDouble(8, saldofinal);
+            valor = sentencia.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex); }
+        try { con.close(); }
+        catch (SQLException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex); }
+        return valor;
+    }
 }
